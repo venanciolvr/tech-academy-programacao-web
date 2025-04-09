@@ -55,13 +55,12 @@
 /* Seção Hero */
 .hero {
     padding: 8rem 0 4rem;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     position: relative;
     overflow: hidden;
 }
 
 .hero__content {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
     position: relative;
