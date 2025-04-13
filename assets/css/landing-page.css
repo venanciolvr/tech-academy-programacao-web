@@ -2,7 +2,7 @@
 
 /* Container */
 .container {
-    max-width: 1200px;
+    max-width: 1276px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -98,8 +98,9 @@
 
 .especialistas__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
+    grid-auto-rows: minmax(502px, auto);
+    gap: 1.25rem;
 }
 
 .especialista-card {
@@ -112,7 +113,6 @@
 
 .especialista-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
 }
 
 .especialista-card__image {
@@ -153,17 +153,18 @@
 /* Seção Por que escolher */
 .por-que-escolher {
     padding: 4rem 0;
-    background: #f8f9fa;
 }
 
 .por-que-escolher__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(412px, 1fr));
+    grid-auto-rows: minmax(309px, auto);
+    gap: 1.25rem;
 }
 
 .beneficio-card {
-    background: white;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
@@ -190,7 +191,7 @@
 .cursos__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1.25rem;
 }
 
 .curso-card {
