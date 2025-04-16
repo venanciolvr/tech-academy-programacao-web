@@ -1,29 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/home-aluno.css">
-    <title>Home</title>
+    <title>Home | Tech Academy</title>
+    <link rel="stylesheet" href="../../assets/css/home-aluno.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+<div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img class ="logo__img" src="../../assets/images/imagotipo-tech-academy.png" alt="Logo da Tech Academy">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li class="active"><a href="home-aluno.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> Cursos</a></li>
+                <li><a href="#"><i class="fas fa-bell"></i> Avisos</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Mensagens</a></li>
+                <li><a href="#"><i class="fas fa-trophy"></i> Conquistas</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Serviços</a></li>
+                <li><a href="#"><i class="fas fa-calendar"></i> Calendário <span class="notification">4</span></a></li>
+                <li><a href="#"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                <li><a href="comunidade.html"><i class="fas fa-users"></i> Comunidade</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-    <!-- Side Bar -->
-    <div class="sidebar">
-        <a href="#">Home</a>
-        <a href="#">Cursos</a>
-        <a href="#">Avisos</a>
-        <a href="#">Mensagens</a>
-        <a href="#">Conquistas</a>
-        <a href="#">Serviços</a>
-        <a href="#">Calendário</a>
-        <a href="#">Financeiro</a>
-        <a href="#">Comunidades</a>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Bloco 1 - Lembretes -->
+        <section class="reminder-section">
+            <h2>Bem-Vindo, Beltrano Costa</h2>
+            <p class="subtitle">Que bom te ver por aqui</p>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="img-container">
+                        <img class="megafone_img" src="../../assets/images/megafone.png" alt="">
+                    </div>
+                    <h3>Lembrete: Vídeo Conferência sobre pesquisa e design de Experiência de Usuário</h3>
+                    <p class="lembrete_descricao">UX-Strategy: Como alcançar o próximo nível.</p>
+                    <p class="author">por Dr. Dona Paul</p>
+                </div>
+        </section>
 
+        <!-- Bloco 2 - Key Point Indicator -->
+        <section class="kpis-section">
+            <div class="kpi-container">
+                <div class="kpi-card">
+                    <img src="/assets/images/pontos chart.png" alt="pontos chart">
+                    <h3>Seus Pontos</h3>
+                    <p>10,5</p>
+                </div>
+                <div class="kpi-card">
+                    <img src="/assets/images/checkmark.png" alt="checkmark">
+                    <h3>Cursos Concluidos</h3>
+                    <p>9</p>
+                </div>
+                <div class="kpi-card">
+                    <img src="/assets/images/relogio tempo.png" alt="relogio tempo">
+                    <h3>Tempo de Aprendizado</h3>
+                    <p>75h</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Bloco 3 - Avisos/Calendario -->
+        <section class="aviso-section">
+            <div class="aviso-container">
+                <div class="aviso-card">
+                    <h2>Avisos</h2>
+                    <p>Lembrete de Entrega de Tarefa</p>
+                    <p>Cronograma de Avaliações</p>
+                    <p>Palestra com Convidados</p>
+                    <p>Manutenção do Sistema</p>
+                </div>
+                <div class="aviso-card">
+                    <h2>Março 2025</h2>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    <p>2025 TECH ACADEMY – TODOS OS DIREITOS RESERVADOS</p>
+</footer>
 </body>
 </html>
