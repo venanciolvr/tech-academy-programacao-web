@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Tech Academy</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Lado esquerdo com imagem -->
+        <div class="login-image">
+            <img src="assets/img/login-side.jpg" alt="Ilustração de tecnologia e educação">
+        </div>
+
+        <!-- Lado direito com formulário -->
+        <div class="login-form">
+            <div class="form-content">
+                <h1 class="form-title">Bem-vindo(a) de volta!</h1>
+                
+                <form class="login-form__fields">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn--primary">Entrar</button>
+                </form>
+
+                <div class="social-login">
+                    <p class="social-login__text">ou continue com</p>
+                    
+                    <div class="social-buttons">
+                        <button class="btn-social btn-google">
+                            <i class="fab fa-google"></i>
+                        </button>
+                        <button class="btn-social btn-apple">
+                            <i class="fab fa-apple"></i>
+                        </button>
+                        <button class="btn-social btn-github">
+                            <i class="fab fa-github"></i>
+                        </button>
+                        <button class="btn-social btn-linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="#esqueci-senha" class="forgot-password">Esqueceu a senha?</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

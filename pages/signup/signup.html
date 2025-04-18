@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Tech Academy</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/signup.css">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- jQuery e jQuery Mask Plugin -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+</head>
+<body>
+    <div class="signup-container">
+        <!-- Lado esquerdo com imagem -->
+        <div class="signup-image">
+            <img src="assets/img/login-side.jpg" alt="Ilustração de tecnologia e educação">
+        </div>
+
+        <!-- Lado direito com formulário -->
+        <div class="signup-form">
+            <div class="form-content">
+                <h1 class="form-title">Crie sua conta</h1>
+                
+                <form class="signup-form__fields" id="signupForm">
+                    <div class="form-group name-group">
+                        <div class="name-field">
+                            <label for="firstName">Nome</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Digite seu nome" required>
+                        </div>
+                        <div class="name-field">
+                            <label for="lastName">Sobrenome</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Digite seu sobrenome" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmEmail">Confirme seu e-mail</label>
+                        <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Confirme seu e-mail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                        
+                        <div class="password-strength">
+                            <ul class="strength-criteria">
+                                <li data-criterion="length">
+                                    <span class="text">Mínimo de 8 caracteres</span>
+                                </li>
+                                <li data-criterion="uppercase">
+                                    <span class="text">Pelo menos uma letra maiúscula</span>
+                                </li>
+                                <li data-criterion="number">
+                                    <span class="text">Pelo menos um número</span>
+                                </li>
+                                <li data-criterion="symbol">
+                                    <span class="text">Pelo menos um símbolo</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirme sua senha</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="text" id="phone" name="phone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="course">Curso de interesse</label>
+                        <select id="course" name="course" required>
+                            <option value="">Selecione um curso</option>
+                            <option value="web">Desenvolvimento Web Full Stack</option>
+                            <option value="data">Data Science e Machine Learning</option>
+                            <option value="cloud">Cloud Computing e DevOps</option>
+                            <option value="cyber">Cybersecurity</option>
+                            <option value="mobile">Mobile Development</option>
+                            <option value="design">UI/UX Design</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Nível de experiência</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="experience" value="beginner" required>
+                                <span>Iniciante</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="experience" value="intermediate">
+                                <span>Intermediário</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="experience" value="advanced">
+                                <span>Avançado</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="terms" required>
+                            <span>Li e aceito os <a href="#termos">termos de uso</a> e <a href="#privacidade">política de privacidade</a></span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="newsletter">
+                            <span>Desejo receber e-mails promocionais e informativos da Tech Academy</span>
+                        </label>
+                    </div>
+                    
+                    <div class="submit-container">
+                        <button type="submit" class="btn btn--primary" disabled>Criar conta</button>
+                        <span class="tooltip">Preencha todos os campos obrigatórios corretamente para continuar.</span>
+                    </div>
+                </form>
+
+                <p class="login-link">Já tem uma conta? <a href="login.html">Faça login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/signup.js"></script>
+</body>
+</html> 
