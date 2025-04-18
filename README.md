@@ -28,7 +28,7 @@ Você pode visualizar os mockups acessando o link do protótipo (em breve).
 
 ## 📌 Como executar
 
-1. Clone o repositório:
+**Clone o repositório:**
    ```bash
    git clone https://github.com/seu-usuario/tech-academy.git
    cd tech-academy
