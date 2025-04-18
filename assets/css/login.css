@@ -91,6 +91,23 @@ html, body {
     border-color: #4caf50;
 }
 
+/* Estilos para estado de erro */
+.form-group input.error {
+    border-color: #dc3545;
+}
+
+.error-message {
+    display: none;
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.error-message.show {
+    display: block;
+}
+
 /* Botão de login */
 .btn--primary {
     width: 100%;
@@ -171,6 +188,31 @@ html, body {
 
 .forgot-password:hover {
     color: #4caf50;
+}
+
+/* Separador */
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 1.5rem auto;
+}
+
+/* Link para signup */
+.signup-link {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.signup-link a {
+    color: #4caf50;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }
 
 /* Responsividade */

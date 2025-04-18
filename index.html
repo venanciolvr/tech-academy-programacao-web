@@ -24,8 +24,8 @@
                     </ul>
                 </nav>
                 <div class="cta-buttons">
-                    <a href="#login" class="btn btn--outline">Login</a>
-                    <a href="#matricula" class="btn btn--primary">Matricule-se</a>
+                    <a href="pages/login/login.html" class="btn btn--outline">Login</a>
+                    <a href="pages/signup/signup-options.html" class="btn btn--primary">Matricule-se</a>
                 </div>
             </div>
         </div>
@@ -109,16 +109,112 @@
 
     <!-- Seção Cursos -->
     <section class="cursos">
-        <div class="container">
-            <h2 class="section-title">Cursos Mais Procurados</h2>
-            <div class="cursos__grid">
-                <!-- Placeholder para cards de cursos -->
-                <div class="curso-card">Desenvolvimento Web Full Stack</div>
-                <div class="curso-card">Data Science e Machine Learning</div>
-                <div class="curso-card">Cloud Computing e DevOps</div>
-                <div class="curso-card">Cybersecurity</div>
-                <div class="curso-card">Mobile Development</div>
-                <div class="curso-card">UI/UX Design</div>
+        <h2 class="section-title">Cursos Mais Procurados</h2>
+        <div class="cursos__container">
+            <!-- Primeira linha (rola para a esquerda) -->
+            <div class="cursos__row cursos__row--left">
+                <div class="curso-card" data-course="web-dev">
+                    <img src="https://placehold.co/412x412" alt="Desenvolvimento Web Full Stack">
+                    <h3>Desenvolvimento Web Full Stack</h3>
+                </div>
+                <div class="curso-card" data-course="data-science">
+                    <img src="https://placehold.co/412x412" alt="Data Science e Machine Learning">
+                    <h3>Data Science e Machine Learning</h3>
+                </div>
+                <div class="curso-card" data-course="cloud">
+                    <img src="https://placehold.co/412x412" alt="Cloud Computing e DevOps">
+                    <h3>Cloud Computing e DevOps</h3>
+                </div>
+                <div class="curso-card" data-course="cyber">
+                    <img src="https://placehold.co/412x412" alt="Cybersecurity">
+                    <h3>Cybersecurity</h3>
+                </div>
+                <div class="curso-card" data-course="mobile">
+                    <img src="https://placehold.co/412x412" alt="Mobile Development">
+                    <h3>Mobile Development</h3>
+                </div>
+                <div class="curso-card" data-course="design">
+                    <img src="https://placehold.co/412x412" alt="UI/UX Design">
+                    <h3>UI/UX Design</h3>
+                </div>
+                <!-- Duplicar os cards para criar o efeito infinito -->
+                <div class="curso-card" data-course="web-dev">
+                    <img src="https://placehold.co/412x412" alt="Desenvolvimento Web Full Stack">
+                    <h3>Desenvolvimento Web Full Stack</h3>
+                </div>
+                <div class="curso-card" data-course="data-science">
+                    <img src="https://placehold.co/412x412" alt="Data Science e Machine Learning">
+                    <h3>Data Science e Machine Learning</h3>
+                </div>
+                <div class="curso-card" data-course="cloud">
+                    <img src="https://placehold.co/412x412" alt="Cloud Computing e DevOps">
+                    <h3>Cloud Computing e DevOps</h3>
+                </div>
+                <div class="curso-card" data-course="cyber">
+                    <img src="https://placehold.co/412x412" alt="Cybersecurity">
+                    <h3>Cybersecurity</h3>
+                </div>
+                <div class="curso-card" data-course="mobile">
+                    <img src="https://placehold.co/412x412" alt="Mobile Development">
+                    <h3>Mobile Development</h3>
+                </div>
+                <div class="curso-card" data-course="design">
+                    <img src="https://placehold.co/412x412" alt="UI/UX Design">
+                    <h3>UI/UX Design</h3>
+                </div>
+            </div>
+
+            <!-- Segunda linha (rola para a direita) -->
+            <div class="cursos__row cursos__row--right">
+                <div class="curso-card" data-course="ai">
+                    <img src="https://placehold.co/412x412" alt="Inteligência Artificial">
+                    <h3>Inteligência Artificial</h3>
+                </div>
+                <div class="curso-card" data-course="blockchain">
+                    <img src="https://placehold.co/412x412" alt="Blockchain">
+                    <h3>Blockchain</h3>
+                </div>
+                <div class="curso-card" data-course="game">
+                    <img src="https://placehold.co/412x412" alt="Game Development">
+                    <h3>Game Development</h3>
+                </div>
+                <div class="curso-card" data-course="iot">
+                    <img src="https://placehold.co/412x412" alt="Internet of Things">
+                    <h3>Internet of Things</h3>
+                </div>
+                <div class="curso-card" data-course="qa">
+                    <img src="https://placehold.co/412x412" alt="Quality Assurance">
+                    <h3>Quality Assurance</h3>
+                </div>
+                <div class="curso-card" data-course="agile">
+                    <img src="https://placehold.co/412x412" alt="Agile & Scrum">
+                    <h3>Agile & Scrum</h3>
+                </div>
+                <!-- Duplicar os cards para criar o efeito infinito -->
+                <div class="curso-card" data-course="ai">
+                    <img src="https://placehold.co/412x412" alt="Inteligência Artificial">
+                    <h3>Inteligência Artificial</h3>
+                </div>
+                <div class="curso-card" data-course="blockchain">
+                    <img src="https://placehold.co/412x412" alt="Blockchain">
+                    <h3>Blockchain</h3>
+                </div>
+                <div class="curso-card" data-course="game">
+                    <img src="https://placehold.co/412x412" alt="Game Development">
+                    <h3>Game Development</h3>
+                </div>
+                <div class="curso-card" data-course="iot">
+                    <img src="https://placehold.co/412x412" alt="Internet of Things">
+                    <h3>Internet of Things</h3>
+                </div>
+                <div class="curso-card" data-course="qa">
+                    <img src="https://placehold.co/412x412" alt="Quality Assurance">
+                    <h3>Quality Assurance</h3>
+                </div>
+                <div class="curso-card" data-course="agile">
+                    <img src="https://placehold.co/412x412" alt="Agile & Scrum">
+                    <h3>Agile & Scrum</h3>
+                </div>
             </div>
         </div>
     </section>
@@ -127,7 +223,7 @@
     <section class="cta">
         <div class="container">
             <h2 class="cta__title">Você está preparado para iniciar sua carreira?</h2>
-            <a href="#matricula" class="btn btn--primary">Comece Agora</a>
+            <a href="../../pages/signup/signup-options.html" class="btn btn--primary">Comece Agora</a>
         </div>
     </section>
 
@@ -160,8 +256,19 @@
         </div>
     </footer>
 
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal__content">
+            <button class="modal__close">&times;</button>
+            <h2 class="modal__title"></h2>
+            <p class="modal__description"></p>
+            <ul class="modal__list"></ul>
+            <p class="modal__duration"></p>
+            <a href="../../pages/signup/signup-options.html" class="btn btn--primary modal__button">Começar Agora</a>
+        </div>
+    </div>
+
     <!-- JavaScript -->
-    <script src="assets/js/script.js"></script>
     <script src="assets/js/landing-page.js"></script>
 </body>
 </html>

@@ -6,8 +6,8 @@
     <title>Login - Tech Academy</title>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
     
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -28,7 +28,8 @@
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-                    </div>
+                        <span class="error-message" id="emailError"></span>
+                    </div> 
                     
                     <div class="form-group">
                         <label for="password">Senha</label>
@@ -58,8 +59,18 @@
                 </div>
 
                 <a href="#esqueci-senha" class="forgot-password">Esqueceu a senha?</a>
+
+                <!-- Separador -->
+                <div class="separator"></div>
+
+                <!-- Link para signup -->
+                <p class="signup-link">
+                    Ainda não tem uma conta? <a href="../signup/signup-options.html">Faça sua matrícula</a>
+                </p>
             </div>
         </div>
     </div>
+
+    <script src="../../assets/js/login.js"></script>
 </body>
-</html> 
+</html>

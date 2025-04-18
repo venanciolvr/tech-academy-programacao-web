@@ -184,28 +184,113 @@
 /* Seção Cursos */
 .cursos {
     padding: 4rem 0;
+    overflow: hidden;
+    position: relative;
 }
 
-.cursos__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.25rem;
+.cursos__container {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.cursos__row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.cursos__row--left {
+    animation-direction: normal;
+}
+
+.cursos__row--right {
+    animation-direction: reverse;
 }
 
 .curso-card {
+    flex: 0 0 412px;
+    height: 412px;
     background: #f8f9fa;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 2rem;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    color: #4a4a4a;
-    transition: background-color 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
 }
 
-.curso-card:hover {
-    background: #f0f0f0;
+.curso-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.curso-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    margin: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.curso-card:hover img {
+    transform: scale(1.05);
+}
+
+.curso-card:hover h3 {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 1.25rem;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-412px * 6 - 20px * 6));
+    }
+}
+
+/* Pausar animação no hover */
+.cursos__row:hover {
+    animation-play-state: paused;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cursos__row {
+        animation-duration: 20s;
+    }
+
+    .curso-card {
+        flex: 0 0 300px;
+        height: 300px;
+    }
+
+    .curso-card h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cursos__row {
+        animation-duration: 15s;
+    }
+
+    .curso-card {
+        flex: 0 0 250px;
+        height: 250px;
+    }
 }
 
 /* Seção CTA */
@@ -328,5 +413,123 @@
 
     .section-title {
         font-size: 1.5rem;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal__content {
+    position: relative;
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.modal__close:hover {
+    color: #333;
+}
+
+.modal__title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #262626;
+}
+
+.modal__description {
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 1.5rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.modal__list {
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.modal__list li {
+    margin-bottom: 0.75rem;
+    color: #4a4a4a;
+    line-height: 1.5;
+}
+
+.modal__duration {
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-style: italic;
+    font-size: 0.875rem;
+}
+
+.modal__button {
+    font-family: 'Inter', sans-serif;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #B1EF42;
+    color: #262626;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.modal__button:hover {
+    background-color: #B287FD;
+    color: #262626;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .modal__content {
+        padding: 1.5rem;
+    }
+
+    .modal__title {
+        font-size: 1.5rem;
+    }
+
+    .modal__description {
+        font-size: 0.875rem;
+    }
+
+    .modal__list li {
+        font-size: 0.875rem;
     }
 }
