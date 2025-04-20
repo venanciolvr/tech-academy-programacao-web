@@ -109,113 +109,63 @@
 
     <!-- Seção Cursos -->
     <section class="cursos">
-        <h2 class="section-title">Cursos Mais Procurados</h2>
-        <div class="cursos__container">
-            <!-- Primeira linha (rola para a esquerda) -->
-            <div class="cursos__row cursos__row--left">
+        <div class="cursos__header">
+            <h2 class="section-title">Cursos Mais Procurados</h2>
+        </div>
+        <div class="cursos__carousel">
+            <button class="cursos__nav-btn cursos__nav-btn--prev" aria-label="Anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="cursos__track">
                 <div class="curso-card" data-course="web-dev">
-                    <img src="https://placehold.co/412x412" alt="Desenvolvimento Web Full Stack">
+                    <img src="https://placehold.co/600x400" alt="Desenvolvimento Web Full Stack">
                     <h3>Desenvolvimento Web Full Stack</h3>
                 </div>
                 <div class="curso-card" data-course="data-science">
-                    <img src="https://placehold.co/412x412" alt="Data Science e Machine Learning">
+                    <img src="https://placehold.co/600x400" alt="Data Science e Machine Learning">
                     <h3>Data Science e Machine Learning</h3>
                 </div>
                 <div class="curso-card" data-course="cloud">
-                    <img src="https://placehold.co/412x412" alt="Cloud Computing e DevOps">
+                    <img src="https://placehold.co/600x400" alt="Cloud Computing e DevOps">
                     <h3>Cloud Computing e DevOps</h3>
                 </div>
                 <div class="curso-card" data-course="cyber">
-                    <img src="https://placehold.co/412x412" alt="Cybersecurity">
+                    <img src="https://placehold.co/600x400" alt="Cybersecurity">
                     <h3>Cybersecurity</h3>
                 </div>
                 <div class="curso-card" data-course="mobile">
-                    <img src="https://placehold.co/412x412" alt="Mobile Development">
+                    <img src="https://placehold.co/600x400" alt="Mobile Development">
                     <h3>Mobile Development</h3>
                 </div>
                 <div class="curso-card" data-course="design">
-                    <img src="https://placehold.co/412x412" alt="UI/UX Design">
+                    <img src="https://placehold.co/600x400" alt="UI/UX Design">
                     <h3>UI/UX Design</h3>
                 </div>
-                <!-- Duplicar os cards para criar o efeito infinito -->
-                <div class="curso-card" data-course="web-dev">
-                    <img src="https://placehold.co/412x412" alt="Desenvolvimento Web Full Stack">
-                    <h3>Desenvolvimento Web Full Stack</h3>
-                </div>
-                <div class="curso-card" data-course="data-science">
-                    <img src="https://placehold.co/412x412" alt="Data Science e Machine Learning">
-                    <h3>Data Science e Machine Learning</h3>
-                </div>
-                <div class="curso-card" data-course="cloud">
-                    <img src="https://placehold.co/412x412" alt="Cloud Computing e DevOps">
-                    <h3>Cloud Computing e DevOps</h3>
-                </div>
-                <div class="curso-card" data-course="cyber">
-                    <img src="https://placehold.co/412x412" alt="Cybersecurity">
-                    <h3>Cybersecurity</h3>
-                </div>
-                <div class="curso-card" data-course="mobile">
-                    <img src="https://placehold.co/412x412" alt="Mobile Development">
-                    <h3>Mobile Development</h3>
-                </div>
-                <div class="curso-card" data-course="design">
-                    <img src="https://placehold.co/412x412" alt="UI/UX Design">
-                    <h3>UI/UX Design</h3>
-                </div>
-            </div>
-
-            <!-- Segunda linha (rola para a direita) -->
-            <div class="cursos__row cursos__row--right">
                 <div class="curso-card" data-course="ai">
-                    <img src="https://placehold.co/412x412" alt="Inteligência Artificial">
+                    <img src="https://placehold.co/600x400" alt="Inteligência Artificial">
                     <h3>Inteligência Artificial</h3>
                 </div>
                 <div class="curso-card" data-course="blockchain">
-                    <img src="https://placehold.co/412x412" alt="Blockchain">
+                    <img src="https://placehold.co/600x400" alt="Blockchain">
                     <h3>Blockchain</h3>
                 </div>
                 <div class="curso-card" data-course="game">
-                    <img src="https://placehold.co/412x412" alt="Game Development">
+                    <img src="https://placehold.co/600x400" alt="Game Development">
                     <h3>Game Development</h3>
                 </div>
                 <div class="curso-card" data-course="iot">
-                    <img src="https://placehold.co/412x412" alt="Internet of Things">
+                    <img src="https://placehold.co/600x400" alt="Internet of Things">
                     <h3>Internet of Things</h3>
-                </div>
-                <div class="curso-card" data-course="qa">
-                    <img src="https://placehold.co/412x412" alt="Quality Assurance">
-                    <h3>Quality Assurance</h3>
-                </div>
-                <div class="curso-card" data-course="agile">
-                    <img src="https://placehold.co/412x412" alt="Agile & Scrum">
-                    <h3>Agile & Scrum</h3>
-                </div>
-                <!-- Duplicar os cards para criar o efeito infinito -->
-                <div class="curso-card" data-course="ai">
-                    <img src="https://placehold.co/412x412" alt="Inteligência Artificial">
-                    <h3>Inteligência Artificial</h3>
-                </div>
-                <div class="curso-card" data-course="blockchain">
-                    <img src="https://placehold.co/412x412" alt="Blockchain">
-                    <h3>Blockchain</h3>
-                </div>
-                <div class="curso-card" data-course="game">
-                    <img src="https://placehold.co/412x412" alt="Game Development">
-                    <h3>Game Development</h3>
-                </div>
-                <div class="curso-card" data-course="iot">
-                    <img src="https://placehold.co/412x412" alt="Internet of Things">
-                    <h3>Internet of Things</h3>
-                </div>
-                <div class="curso-card" data-course="qa">
-                    <img src="https://placehold.co/412x412" alt="Quality Assurance">
-                    <h3>Quality Assurance</h3>
-                </div>
-                <div class="curso-card" data-course="agile">
-                    <img src="https://placehold.co/412x412" alt="Agile & Scrum">
-                    <h3>Agile & Scrum</h3>
                 </div>
             </div>
+            <button class="cursos__nav-btn cursos__nav-btn--next" aria-label="Próximo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="cursos__dots"></div>
         </div>
     </section>
 

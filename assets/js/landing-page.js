@@ -390,6 +390,9 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+
+    // Inicializa o carrossel quando o DOM está carregado
+    new Carousel();
 });
 
 /**
@@ -460,4 +463,249 @@ function openModal(courseData) {
 function closeModal() {
     courseModal.classList.remove('show');
     document.body.style.overflow = '';
+}
+
+class Carousel {
+    constructor() {
+        this.carousel = document.querySelector('.cursos__carousel');
+        this.track = document.querySelector('.cursos__track');
+        this.cards = document.querySelectorAll('.curso-card');
+        this.prevBtn = document.querySelector('.cursos__nav-btn--prev');
+        this.nextBtn = document.querySelector('.cursos__nav-btn--next');
+        this.dotsContainer = document.querySelector('.cursos__dots');
+        
+        this.currentIndex = 5; // Start with a cloned card in the center
+        this.cardWidth = this.cards[0].offsetWidth;
+        this.gap = 32; // 2rem gap between cards
+        this.isAutoScrolling = false;
+        this.autoScrollInterval = null;
+        this.isAnimating = false;
+        this.isHovered = false;
+        
+        this.init();
+    }
+    
+    init() {
+        // Clone cards for infinite loop
+        this.cloneCards();
+        
+        // Create dots navigation
+        this.createDots();
+        
+        // Set initial position
+        requestAnimationFrame(() => {
+            this.centerCarousel(false);
+            // Start with animation after initial positioning
+            setTimeout(() => {
+                this.centerCarousel(true);
+                this.startAutoScroll();
+            }, 50);
+        });
+        
+        // Add event listeners
+        this.prevBtn.addEventListener('click', () => this.handleManualNavigation('prev'));
+        this.nextBtn.addEventListener('click', () => this.handleManualNavigation('next'));
+        
+        // Touch events for mobile
+        this.addTouchEvents();
+        
+        // Handle hover states
+        this.carousel.addEventListener('mouseenter', () => {
+            this.isHovered = true;
+            this.pauseAutoScroll();
+        });
+        
+        this.carousel.addEventListener('mouseleave', () => {
+            this.isHovered = false;
+            this.startAutoScroll();
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            this.cardWidth = this.cards[0].offsetWidth;
+            this.centerCarousel();
+        });
+    }
+    
+    createDots() {
+        // Clear existing dots
+        this.dotsContainer.innerHTML = '';
+        
+        // Create dots for original cards (excluding clones)
+        const originalCardsCount = this.cards.length - 10; // Subtract cloned cards
+        for (let i = 0; i < originalCardsCount; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('cursos__dot');
+            dot.setAttribute('aria-label', `Ir para o card ${i + 1}`);
+            dot.addEventListener('click', () => this.handleDotClick(i));
+            this.dotsContainer.appendChild(dot);
+        }
+        
+        // Update active dot
+        this.updateDots();
+    }
+    
+    handleDotClick(index) {
+        this.pauseAutoScroll();
+        
+        // Calculate the target index considering cloned cards
+        const targetIndex = index + 5;
+        this.currentIndex = targetIndex;
+        
+        this.centerCarousel();
+        
+        // Update dots
+        this.updateDots();
+        
+        // Restart auto-scroll after delay
+        setTimeout(() => {
+            if (!this.isHovered) {
+                this.startAutoScroll();
+            }
+        }, 1000);
+    }
+    
+    updateDots() {
+        const dots = this.dotsContainer.querySelectorAll('.cursos__dot');
+        const originalIndex = (this.currentIndex - 5) % (this.cards.length - 10);
+        
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === originalIndex);
+        });
+    }
+    
+    handleManualNavigation(direction) {
+        this.pauseAutoScroll();
+        this.move(direction);
+        // Restart auto-scroll after manual navigation
+        setTimeout(() => {
+            if (!this.isHovered) {
+                this.startAutoScroll();
+            }
+        }, 1000);
+    }
+    
+    move(direction) {
+        if (this.isAnimating) return;
+        this.isAnimating = true;
+        
+        if (direction === 'prev') {
+            this.currentIndex--;
+        } else {
+            this.currentIndex++;
+        }
+        
+        this.centerCarousel();
+        
+        // Reset position if at the end
+        setTimeout(() => {
+            if (direction === 'prev' && this.currentIndex <= 0) {
+                this.currentIndex = this.cards.length - 10;
+                this.centerCarousel(false);
+            } else if (direction === 'next' && this.currentIndex >= this.cards.length - 5) {
+                this.currentIndex = 5;
+                this.centerCarousel(false);
+            }
+            this.isAnimating = false;
+        }, 500);
+    }
+    
+    centerCarousel(animate = true) {
+        const carouselWidth = this.carousel.offsetWidth;
+        const centerOffset = (carouselWidth - this.cardWidth) / 2;
+        const targetOffset = -(this.currentIndex * (this.cardWidth + this.gap)) + centerOffset;
+        
+        this.track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+        this.track.style.transform = `translateX(${targetOffset}px)`;
+        
+        // Update active card
+        this.cards.forEach((card, index) => {
+            const isActive = index === this.currentIndex;
+            card.classList.toggle('active', isActive);
+            
+            // Calculate distance from center for scaling effect
+            const distanceFromCenter = Math.abs(index - this.currentIndex);
+            const scale = Math.max(0.9, 1 - (distanceFromCenter * 0.1));
+            const opacity = Math.max(0.7, 1 - (distanceFromCenter * 0.3));
+            
+            card.style.transform = `scale(${scale}) translateY(${isActive ? '-10px' : '0'})`;
+            card.style.opacity = opacity;
+            card.style.zIndex = isActive ? '2' : '1';
+        });
+        
+        // Update dots
+        this.updateDots();
+    }
+    
+    startAutoScroll() {
+        if (this.isAutoScrolling || this.isHovered) return;
+        
+        this.isAutoScrolling = true;
+        this.autoScrollInterval = setInterval(() => {
+            if (!this.isAnimating && !this.isHovered) {
+                this.move('next');
+            }
+        }, 3000);
+    }
+    
+    pauseAutoScroll() {
+        this.isAutoScrolling = false;
+        if (this.autoScrollInterval) {
+            clearInterval(this.autoScrollInterval);
+            this.autoScrollInterval = null;
+        }
+    }
+    
+    addTouchEvents() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        this.carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            this.pauseAutoScroll();
+        });
+        
+        this.carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe(touchStartX, touchEndX);
+            // Restart auto-scroll after touch
+            setTimeout(() => {
+                if (!this.isHovered) {
+                    this.startAutoScroll();
+                }
+            }, 1000);
+        });
+    }
+    
+    handleSwipe(startX, endX) {
+        const swipeThreshold = 50;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                this.move('next');
+            } else {
+                this.move('prev');
+            }
+        }
+    }
+    
+    cloneCards() {
+        // Clona os primeiros 5 cards para o final
+        const firstCards = Array.from(this.cards).slice(0, 5);
+        firstCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            this.track.appendChild(clone);
+        });
+        
+        // Clona os últimos 5 cards para o início
+        const lastCards = Array.from(this.cards).slice(-5);
+        lastCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            this.track.insertBefore(clone, this.track.firstChild);
+        });
+        
+        // Atualiza a referência dos cards
+        this.cards = document.querySelectorAll('.curso-card');
+    }
 }
