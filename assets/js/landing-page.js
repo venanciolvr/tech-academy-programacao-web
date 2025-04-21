@@ -754,15 +754,15 @@ class LogoStrip {
 
     async loadLogoFiles() {
         this.logoFiles = [
-            { src: '../../assets/img/logos/Google.png', alt: 'GOOGLE' },
-            { src: '../../assets/img/logos/Apple.png', alt: 'APPLE' },
-            { src: '../../assets/img/logos/Nvidia.png', alt: 'NVIDIA' },
-            { src: '../../assets/img/logos/Meta.png', alt: 'META' },
-            { src: '../../assets/img/logos/IBM.png', alt: 'IBM' },
-            { src: '../../assets/img/logos/Amazon.png', alt: 'AMAZON' },
-            { src: '../../assets/img/logos/Itau.png', alt: 'ITAU' },
-            { src: '../../assets/img/logos/Microsoft.png', alt: 'MICROSOFT' },
-            { src: '../../assets/img/logos/Linkedin.png', alt: 'LINKEDIN' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/Google.png', alt: 'GOOGLE' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/Apple.png', alt: 'APPLE' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/Nvidia.png', alt: 'NVIDIA' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/Meta.png', alt: 'META' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/IBM.png', alt: 'IBM' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/Amazon.png', alt: 'AMAZON' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/Itau.png', alt: 'ITAU' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/Microsoft.png', alt: 'MICROSOFT' },
+            { src: '/tech-academy-programacao-web/assets/img/logos/Linkedin.png', alt: 'LINKEDIN' },
         ];
     }
 
