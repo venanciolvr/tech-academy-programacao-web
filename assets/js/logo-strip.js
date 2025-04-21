@@ -1,13 +1,13 @@
 // Lista de logos para exibir
 const logos = [
-    { name: 'Logo 1', image: 'assets/images/logos/logo1.png' },
-    { name: 'Logo 2', image: 'assets/images/logos/logo2.png' },
-    { name: 'Logo 3', image: 'assets/images/logos/logo3.png' },
-    { name: 'Logo 4', image: 'assets/images/logos/logo4.png' },
-    { name: 'Logo 5', image: 'assets/images/logos/logo5.png' },
-    { name: 'Logo 6', image: 'assets/images/logos/logo6.png' },
-    { name: 'Logo 7', image: 'assets/images/logos/logo7.png' },
-    { name: 'Logo 8', image: 'assets/images/logos/logo8.png' }
+    { name: 'Logo 1', image: 'assets/img/logos/logo1.png' },
+    { name: 'Logo 2', image: 'assets/img/logos/logo2.png' },
+    { name: 'Logo 3', image: 'assets/img/logos/logo3.png' },
+    { name: 'Logo 4', image: 'assets/img/logos/logo4.png' },
+    { name: 'Logo 5', image: 'assets/img/logos/logo5.png' },
+    { name: 'Logo 6', image: 'assets/img/logos/logo6.png' },
+    { name: 'Logo 7', image: 'assets/img/logos/logo7.png' },
+    { name: 'Logo 8', image: 'assets/img/logos/logo8.png' }
 ];
 
 // Função para criar um elemento de logo

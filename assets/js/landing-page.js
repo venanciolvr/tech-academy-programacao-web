@@ -755,7 +755,7 @@ class LogoStrip {
     async loadLogoFiles() {
         try {
             // Busca a lista de arquivos de logo do servidor
-            const response = await fetch('/assets/images/logos/');
+            const response = await fetch('/assets/img/logos/');
             const text = await response.text();
             
             // Analisa a lista de diretórios para obter arquivos de imagem
@@ -772,7 +772,7 @@ class LogoStrip {
                 .map(href => {
                     const fileName = href.split('/').pop();
                     return {
-                        src: `/assets/images/logos/${fileName}`,
+                        src: `/assets/img/logos/${fileName}`,
                         alt: fileName.split('.')[0].toUpperCase()
                     };
                 });
@@ -784,12 +784,15 @@ class LogoStrip {
             console.error('Error loading logo files:', error);
             // Retorna um conjunto padrão de logos se a lista de diretórios falhar
             this.logoFiles = [
-                { src: 'assets/images/logos/Google.png', alt: 'GOOGLE' },
-                { src: 'assets/images/logos/Apple.png', alt: 'APPLE' },
-                { src: 'assets/images/logos/Nvidia.png', alt: 'NVIDIA' },
-                { src: 'assets/images/logos/Meta.png', alt: 'ETA' },
-                { src: 'assets/images/logos/IBM.png', alt: 'IBM' },
-                { src: 'assets/images/logos/Amazon.png', alt: 'AMAZON' }
+                { src: '/assets/img/logos/Google.png', alt: 'GOOGLE' },
+                { src: '/assets/img/logos/Apple.png', alt: 'APPLE' },
+                { src: '/assets/img/logos/Nvidia.png', alt: 'NVIDIA' },
+                { src: '/assets/img/logos/Meta.png', alt: 'META' },
+                { src: '/assets/img/logos/IBM.png', alt: 'IBM' },
+                { src: '/assets/img/logos/Amazon.png', alt: 'AMAZON' },
+                { src: '/assets/img/logos/Itau.png', alt: 'ITAU' },
+                { src: '/assets/img/logos/Microsoft.png', alt: 'MICROSOFT' },
+                { src: '/assets/img/logos/Linkedin.png', alt: 'LINKEDIN' },
             ];
         }
     }
