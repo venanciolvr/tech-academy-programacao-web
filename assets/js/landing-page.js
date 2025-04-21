@@ -784,15 +784,15 @@ class LogoStrip {
             console.error('Error loading logo files:', error);
             // Retorna um conjunto padrão de logos se a lista de diretórios falhar
             this.logoFiles = [
-                { src: '/assets/img/logos/Google.png', alt: 'GOOGLE' },
-                { src: '/assets/img/logos/Apple.png', alt: 'APPLE' },
-                { src: '/assets/img/logos/Nvidia.png', alt: 'NVIDIA' },
-                { src: '/assets/img/logos/Meta.png', alt: 'META' },
-                { src: '/assets/img/logos/IBM.png', alt: 'IBM' },
-                { src: '/assets/img/logos/Amazon.png', alt: 'AMAZON' },
-                { src: '/assets/img/logos/Itau.png', alt: 'ITAU' },
-                { src: '/assets/img/logos/Microsoft.png', alt: 'MICROSOFT' },
-                { src: '/assets/img/logos/Linkedin.png', alt: 'LINKEDIN' },
+                { src: '../../assets/img/logos/Google.png', alt: 'GOOGLE' },
+                { src: '../../assets/img/logos/Apple.png', alt: 'APPLE' },
+                { src: '../../assets/img/logos/Nvidia.png', alt: 'NVIDIA' },
+                { src: '../../assets/img/logos/Meta.png', alt: 'META' },
+                { src: '../../assets/img/logos/IBM.png', alt: 'IBM' },
+                { src: '../../assets/img/logos/Amazon.png', alt: 'AMAZON' },
+                { src: '../../assets/img/logos/Itau.png', alt: 'ITAU' },
+                { src: '../../assets/img/logos/Microsoft.png', alt: 'MICROSOFT' },
+                { src: '../../assets/img/logos/Linkedin.png', alt: 'LINKEDIN' },
             ];
         }
     }

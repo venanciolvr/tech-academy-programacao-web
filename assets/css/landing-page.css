@@ -5,6 +5,8 @@
     max-width: 1276px;
     margin: 0 auto;
     padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Navbar */
@@ -84,14 +86,18 @@
 
 /* Seção Especialistas */
 .especialistas {
-    padding:0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 .especialistas__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    padding: 0 1rem;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .especialista-card {
@@ -109,7 +115,7 @@
 
 .especialista-card__image {
     width: 100%;
-    height: 316px;
+    aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 8px;
 }
@@ -129,19 +135,35 @@
 @media (max-width: 1024px) {
     .especialistas__grid {
         grid-template-columns: repeat(2, 1fr);
+        padding: 0 1rem;
     }
 }
 
 /* Responsividade para mobile */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
     .especialistas__grid {
         grid-template-columns: 1fr;
-        max-width: 400px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .especialista-card {
+        max-width: 100%;
         margin: 0 auto;
     }
-    
+
     .especialista-card__image {
-        height: 280px;
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 8px;
     }
 }
 
@@ -237,13 +259,18 @@
 /* Seção Por que escolher */
 .por-que-escolher {
     padding: 4rem 0;
+    width: 100%;
 }
 
 .por-que-escolher__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(412px, 1fr));
-    grid-auto-rows: minmax(309px, auto);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
+    width: 100%;
+    max-width: 1276px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .beneficio-card {
@@ -256,6 +283,11 @@
     align-items: center;
     justify-content: center;
     min-height: 309px;
+    transition: transform 0.3s ease;
+}
+
+.beneficio-card:hover {
+    transform: translateY(-4px);
 }
 
 .beneficio-card h5 {
@@ -263,10 +295,39 @@
     font-size: 2rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 44px;
-    padding: 0 1rem;
+    line-height: 1.4;
     margin: 0;
     color: #262626;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1024px) {
+    .por-que-escolher__grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .por-que-escolher {
+        padding: 2rem 0;
+    }
+
+    .por-que-escolher__grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        gap: 1rem;
+    }
+
+    .beneficio-card {
+        min-height: 160px;
+        padding: 1.25rem;
+    }
+
+    .beneficio-card h5 {
+        font-size: 1.25rem;
+    }
 }
 
 /* Seção Cursos */

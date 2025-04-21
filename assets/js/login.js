@@ -44,8 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailValid = updateEmailValidationState(emailInput.value);
         
         if (emailValid && passwordInput.value.trim() !== '') {
-            // Aqui você pode adicionar a lógica de autenticação
-            console.log('Formulário válido, pronto para autenticação');
+            /**
+             * Aqui você pode adicionar a lógica de autenticação
+             * Redireciona para a página home-aluno.html
+             */
+            window.location.href = '../../pages/home-aluno/home-aluno.html';
         }
     });
 });
