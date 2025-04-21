@@ -1,4 +1,35 @@
 /* Google Fontes */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
+/* Reset de estilos para elementos clicáveis */
+button,
+a,
+input,
+textarea,
+select {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Remover outline e box-shadow no foco */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Remover highlight em elementos clicáveis no mobile */
+@media (max-width: 768px) {
+    button,
+    a,
+    input,
+    textarea,
+    select {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
 /* Resto dos estilos... */

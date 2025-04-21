@@ -19,7 +19,7 @@ Este repositório contempla a versão projeto construída com:
 
 - **HTML5**  
 - **CSS3**  
-- **JavaScript (ES6+)**  
+- **JavaScript**  
 
 ## 🎨 Prototipação
 
@@ -31,18 +31,26 @@ Você pode visualizar os mockups acessando o link do protótipo (em breve).
 Você pode acessar a versão publicada da plataforma TECH ACADEMY no link abaixo:  
 🔗 **[tech-academy.github.io](https://venanciolvr.github.io/tech-academy-programacao-web/)**
 
-## 🧪 Teste a Plataforma
+🧪 Teste a Plataforma
 
-Para explorar o funcionamento da plataforma, siga este fluxo:
+Você pode explorar a plataforma seguindo os passos abaixo (versão em desenvolvimento com acesso simulado):
+1. Acesse a landing page e conheça os destaques da TECH ACADEMY
+2. Clique em “Login” no menu superior ou no botão de chamada para acessar a tela de login
+3. No formulário de login:
+   - Digite um e-mail fictício no formato válido (ex: abc@gmail.com)
+	- Digite qualquer caractere no campo de senha
+	- Clique em “Entrar”
+4. Você será redirecionado ao Portal do Aluno, onde poderá visualizar:
+   - Cursos matriculados
+	- Barra de progresso (mockup)
+	- Conquistas e certificações simuladas
+5. Também é possível navegar até a seção Comunidade (blog educacional) e explorar artigos simulados
 
-1. Acesse a **landing page** com os destaques da TECH ACADEMY  
-2. Clique em **“Cursos”** para visualizar o catálogo de cursos em destaque
-3. Escolha um curso e clique em **“Matricular-se”** (ação simulada)
-4. Use o botão de **“Login”** para testar a tela de autenticação
-5. Acesse o **Portal do Aluno** e navegue pelo painel de conquistas e progresso
-6. Visite a seção **Blog Educacional** para visualizar os artigos
+⚠️ A autenticação está em modo de simulação para fins de apresentação. Nenhum dado real é processado.
 
-⚠️ *Algumas funcionalidades ainda estão em fase de protótipo ou mockup visual.*
+## 💾 Repositório no GitHub
+
+🔗 Acesse o repositório completo: [Tech Academy](https://github.com/seu-usuario/tech-academy)
 
 ## 📌 Como executar
 
