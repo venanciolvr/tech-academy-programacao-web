@@ -755,7 +755,7 @@ class LogoStrip {
     async loadLogoFiles() {
         try {
             // Busca a lista de arquivos de logo do servidor
-            const response = await fetch('/assets/img/logos/');
+            const response = await fetch('../../assets/img/logos/');
             const text = await response.text();
             
             // Analisa a lista de diretórios para obter arquivos de imagem
@@ -772,7 +772,7 @@ class LogoStrip {
                 .map(href => {
                     const fileName = href.split('/').pop();
                     return {
-                        src: `/assets/img/logos/${fileName}`,
+                        src: `../../assets/img/logos/${fileName}`,
                         alt: fileName.split('.')[0].toUpperCase()
                     };
                 });
