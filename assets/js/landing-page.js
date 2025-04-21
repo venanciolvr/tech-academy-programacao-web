@@ -784,12 +784,12 @@ class LogoStrip {
             console.error('Error loading logo files:', error);
             // Retorna um conjunto padrão de logos se a lista de diretórios falhar
             this.logoFiles = [
-                { src: '/assets/images/logos/google.png', alt: 'GOOGLE' },
-                { src: '/assets/images/logos/apple.png', alt: 'APPLE' },
-                { src: '/assets/images/logos/nvidia.png', alt: 'NVIDIA' },
-                { src: '/assets/images/logos/meta.png', alt: 'META' },
-                { src: '/assets/images/logos/ibm.png', alt: 'IBM' },
-                { src: '/assets/images/logos/amazon.png', alt: 'AMAZON' }
+                { src: '/assets/images/logos/Google.png', alt: 'GOOGLE' },
+                { src: '/assets/images/logos/Apple.png', alt: 'APPLE' },
+                { src: '/assets/images/logos/Nvidia.png', alt: 'NVIDIA' },
+                { src: '/assets/images/logos/Meta.png', alt: 'ETA' },
+                { src: '/assets/images/logos/IBM.png', alt: 'IBM' },
+                { src: '/assets/images/logos/Amazon.png', alt: 'AMAZON' }
             ];
         }
     }
