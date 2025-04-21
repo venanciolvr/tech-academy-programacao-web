@@ -89,9 +89,9 @@
 
 .especialistas__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
-    grid-auto-rows: minmax(502px, auto);
-    gap: 1.25rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 0 1rem;
 }
 
 .especialista-card {
@@ -99,22 +99,23 @@
     border-radius: 8px;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
 .especialista-card:hover {
     transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .especialista-card__image {
-    width: 304px;
+    width: 100%;
     height: 316px;
-    border-radius: 8px;
     object-fit: cover;
-    margin: 0 auto 1rem;
+    border-radius: 8px;
 }
 
 .especialista-card__info {
-    margin-top: 1rem;
+    padding: 1.5rem;
 }
 
 .especialista-card__descricao,
@@ -122,7 +123,26 @@
     font-family: 'Inter', sans-serif;
     color: #262626;
     margin-bottom: 0.5rem;
-    padding: 0 1rem;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1024px) {
+    .especialistas__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .especialistas__grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .especialista-card__image {
+        height: 280px;
+    }
 }
 
 .section-title {
