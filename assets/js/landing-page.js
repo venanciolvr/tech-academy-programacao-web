@@ -753,16 +753,17 @@ class LogoStrip {
     }
 
     async loadLogoFiles() {
+        const basePath = window.location.pathname.includes('tech-academy-programacao-web') ? '/tech-academy-programacao-web' : '';
         this.logoFiles = [
-            { src: '/tech-academy-programacao-web/assets/img/logos/Google.png', alt: 'GOOGLE' },
-            { src: '/tech-academy-programacao-web/assets/img/logos/Apple.png', alt: 'APPLE' },
-            { src: '/tech-academy-programacao-web/assets/img/logos/Nvidia.png', alt: 'NVIDIA' },
-            { src: '/tech-academy-programacao-web/assets/img/logos/Meta.png', alt: 'META' },
-            { src: '/tech-academy-programacao-web/assets/img/logos/IBM.png', alt: 'IBM' },
-            { src: '/tech-academy-programacao-web/assets/img/logos/Amazon.png', alt: 'AMAZON' },
-            { src: '/tech-academy-programacao-web/assets/img/logos/Itau.png', alt: 'ITAU' },
-            { src: '/tech-academy-programacao-web/assets/img/logos/Microsoft.png', alt: 'MICROSOFT' },
-            { src: '/tech-academy-programacao-web/assets/img/logos/Linkedin.png', alt: 'LINKEDIN' },
+            { src: `${basePath}/assets/img/logos/Google.png`, alt: 'GOOGLE' },
+            { src: `${basePath}/assets/img/logos/Apple.png`, alt: 'APPLE' },
+            { src: `${basePath}/assets/img/logos/Nvidia.png`, alt: 'NVIDIA' },
+            { src: `${basePath}/assets/img/logos/Meta.png`, alt: 'META' },
+            { src: `${basePath}/assets/img/logos/IBM.png`, alt: 'IBM' },
+            { src: `${basePath}/assets/img/logos/Amazon.png`, alt: 'AMAZON' },
+            { src: `${basePath}/assets/img/logos/Itau.png`, alt: 'ITAU' },
+            { src: `${basePath}/assets/img/logos/Microsoft.png`, alt: 'MICROSOFT' },
+            { src: `${basePath}/assets/img/logos/Linkedin.png`, alt: 'LINKEDIN' },
         ];
     }
 
