@@ -84,15 +84,7 @@
 
 /* Seção Especialistas */
 .especialistas {
-    padding: 4rem 0;
-}
-
-.section-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #262626;
+    padding:0;
 }
 
 .especialistas__grid {
@@ -105,7 +97,6 @@
 .especialista-card {
     background: #EFF0F1;
     border-radius: 8px;
-    padding: 1.5rem;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -122,18 +113,24 @@
     margin: 0 auto 1rem;
 }
 
-.especialista-card__name {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: #262626;
+.especialista-card__info {
+    margin-top: 1rem;
 }
 
-.especialista-card__curso,
+.especialista-card__descricao,
 .especialista-card__cargo {
     font-family: 'Inter', sans-serif;
     color: #262626;
     margin-bottom: 0.5rem;
+    padding: 0 1rem;
+}
+
+.section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #262626;
 }
 
 /* Seção Destaque */
@@ -141,12 +138,80 @@
     color: #262626;
     padding: 3rem 0;
     text-align: center;
+    position: relative;
 }
 
-.destaque__text {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.5rem;
-    font-weight: 600;
+.destaque .container {
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-strip {
+    position: relative;
+    width: calc(100% + 2rem);
+    padding: 2rem 0;
+    margin: 0 -1rem;
+}
+
+.logo-strip::before,
+.logo-strip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logo-strip::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.logo-strip::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.logo-strip__track {
+    display: flex;
+    gap: 4rem;
+    animation: scroll 30s linear infinite;
+    will-change: transform;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .logo-strip__track {
+        gap: 2rem;
+    }
+}
+
+.logo-strip__item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 60px;
+    opacity: 0.7;
+}
+
+.logo-strip__logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 /* Seção Por que escolher */
@@ -164,21 +229,24 @@
 .beneficio-card {
     background: #f8f9fa;
     border: 1px solid #e0e0e0;
-    padding: 2rem;
-    border-radius: 12px;
+    padding: 1.25rem;
+    border-radius: 8px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 309px;
 }
 
-.beneficio-card h3 {
+.beneficio-card h5 {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    color: #1a1a1a;
-}
-
-.beneficio-card p {
-    font-family: 'Inter', sans-serif;
-    color: #4a4a4a;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 44px;
+    padding: 0 1rem;
+    margin: 0;
+    color: #262626;
 }
 
 /* Seção Cursos */
@@ -192,7 +260,7 @@
 
 .cursos__header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 2rem;
     margin-bottom: 2rem;
@@ -302,7 +370,7 @@
     font-weight: 600;
 }
 
-/* Responsive Styles */
+/* Estilos Responsivos */
 @media (max-width: 768px) {
     .cursos__header {
         flex-direction: column;
@@ -337,7 +405,7 @@
     }
 }
 
-/* Blur Effect */
+/* Efeito de blur */
 .cursos__carousel::before,
 .cursos__carousel::after {
     content: '';
@@ -380,30 +448,105 @@
 }
 
 .footer__content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
 }
 
-.footer h3 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+.footer__main-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
 }
 
-.footer ul {
-    list-style: none;
-    padding: 0;
+.footer__primary-links {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
-.footer a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer a:hover {
+.footer__primary-links a {
     color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 3rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.footer__primary-links a:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+.footer__social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer__social-links a {
+    color: #B287FD;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.footer__social-links a:hover {
+    text-decoration: underline;
+    text-decoration-color: #B287FD;
+}
+
+.footer__secondary-links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-top: auto;
+}
+
+.footer__secondary-links a {
+    color: #ccc;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.footer__secondary-links a:hover {
+    text-decoration: underline;
+    text-decoration-color: #ccc;
+}
+
+.footer__copyright {
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    margin: 0;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .footer__content {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .footer__secondary-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .footer__primary-links a {
+        font-size: 2rem;
+    }
+
+    .footer__social-links a {
+        font-size: 1.5rem;
+    }
 }
 
 /* Botões */
@@ -438,7 +581,7 @@
     outline-offset: -1px;
     color: #B1EF42;
     padding: 0.75rem 1.5rem;
-    border-radius: 4px
+    border-radius: 4px;
     transition: all 0.3s ease;
 }
 
@@ -446,7 +589,7 @@
     background: #EEFCD9;
     outline: 1px solid #B1EF42;
     outline-offset: -1px;
-    /* color: #262626; */
+    /* cor: #262626; */
 }
 
 /* Design Responsivo */
@@ -482,7 +625,7 @@
     }
 }
 
-/* Modal Styles */
+/* Estilos do Modal */
 .modal {
     display: none;
     position: fixed;
@@ -630,7 +773,7 @@
     transform: none;
 }
 
-/* Responsive Styles */
+/* Estilos Responsivos */
 @media (max-width: 768px) {
     .cursos__dots {
         margin-top: 1.5rem;

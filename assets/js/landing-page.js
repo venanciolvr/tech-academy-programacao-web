@@ -393,6 +393,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializa o carrossel quando o DOM está carregado
     new Carousel();
+
+    // Initialize logo strip
+    new LogoStrip();
 });
 
 /**
@@ -474,9 +477,9 @@ class Carousel {
         this.nextBtn = document.querySelector('.cursos__nav-btn--next');
         this.dotsContainer = document.querySelector('.cursos__dots');
         
-        this.currentIndex = 5; // Start with a cloned card in the center
+        this.currentIndex = 5; // Inicia com um card clonado no centro
         this.cardWidth = this.cards[0].offsetWidth;
-        this.gap = 32; // 2rem gap between cards
+        this.gap = 32; // 2rem de espaço entre os cards
         this.isAutoScrolling = false;
         this.autoScrollInterval = null;
         this.isAnimating = false;
@@ -486,30 +489,30 @@ class Carousel {
     }
     
     init() {
-        // Clone cards for infinite loop
+        // Clona os cards para loop infinito
         this.cloneCards();
         
-        // Create dots navigation
+        // Cria a navegação por pontos
         this.createDots();
         
-        // Set initial position
+        // Define a posição inicial
         requestAnimationFrame(() => {
             this.centerCarousel(false);
-            // Start with animation after initial positioning
+            // Inicia com a animação após a posição inicial
             setTimeout(() => {
                 this.centerCarousel(true);
                 this.startAutoScroll();
             }, 50);
         });
         
-        // Add event listeners
+        // Adiciona os eventos de clique
         this.prevBtn.addEventListener('click', () => this.handleManualNavigation('prev'));
         this.nextBtn.addEventListener('click', () => this.handleManualNavigation('next'));
         
-        // Touch events for mobile
+        // Eventos de toque para dispositivos móveis
         this.addTouchEvents();
         
-        // Handle hover states
+        // Cuida do estado de hover
         this.carousel.addEventListener('mouseenter', () => {
             this.isHovered = true;
             this.pauseAutoScroll();
@@ -520,7 +523,7 @@ class Carousel {
             this.startAutoScroll();
         });
         
-        // Handle window resize
+        // Cuida do redimensionamento da janela
         window.addEventListener('resize', () => {
             this.cardWidth = this.cards[0].offsetWidth;
             this.centerCarousel();
@@ -528,11 +531,11 @@ class Carousel {
     }
     
     createDots() {
-        // Clear existing dots
+        // Limpa os pontos existentes
         this.dotsContainer.innerHTML = '';
         
-        // Create dots for original cards (excluding clones)
-        const originalCardsCount = this.cards.length - 10; // Subtract cloned cards
+        // Cria pontos para os cards originais (excluindo clones)
+        const originalCardsCount = this.cards.length - 10; // Subtrai os clones
         for (let i = 0; i < originalCardsCount; i++) {
             const dot = document.createElement('button');
             dot.classList.add('cursos__dot');
@@ -541,23 +544,23 @@ class Carousel {
             this.dotsContainer.appendChild(dot);
         }
         
-        // Update active dot
+        // Atualiza o ponto ativo
         this.updateDots();
     }
     
     handleDotClick(index) {
         this.pauseAutoScroll();
         
-        // Calculate the target index considering cloned cards
+        // Calcula o índice alvo considerando os clones
         const targetIndex = index + 5;
         this.currentIndex = targetIndex;
         
         this.centerCarousel();
         
-        // Update dots
+        // Atualiza os pontos
         this.updateDots();
         
-        // Restart auto-scroll after delay
+        // Reinicia o auto-scroll após o atraso
         setTimeout(() => {
             if (!this.isHovered) {
                 this.startAutoScroll();
@@ -577,7 +580,7 @@ class Carousel {
     handleManualNavigation(direction) {
         this.pauseAutoScroll();
         this.move(direction);
-        // Restart auto-scroll after manual navigation
+        // Reinicia o auto-scroll após a navegação manual
         setTimeout(() => {
             if (!this.isHovered) {
                 this.startAutoScroll();
@@ -597,7 +600,7 @@ class Carousel {
         
         this.centerCarousel();
         
-        // Reset position if at the end
+        // Reseta a posição se estiver no final
         setTimeout(() => {
             if (direction === 'prev' && this.currentIndex <= 0) {
                 this.currentIndex = this.cards.length - 10;
@@ -618,12 +621,12 @@ class Carousel {
         this.track.style.transition = animate ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
         this.track.style.transform = `translateX(${targetOffset}px)`;
         
-        // Update active card
+        // Atualiza o card ativo
         this.cards.forEach((card, index) => {
             const isActive = index === this.currentIndex;
             card.classList.toggle('active', isActive);
             
-            // Calculate distance from center for scaling effect
+            // Calcula a distância do centro para o efeito de escala
             const distanceFromCenter = Math.abs(index - this.currentIndex);
             const scale = Math.max(0.9, 1 - (distanceFromCenter * 0.1));
             const opacity = Math.max(0.7, 1 - (distanceFromCenter * 0.3));
@@ -633,7 +636,7 @@ class Carousel {
             card.style.zIndex = isActive ? '2' : '1';
         });
         
-        // Update dots
+        // Atualiza os pontos
         this.updateDots();
     }
     
@@ -668,7 +671,7 @@ class Carousel {
         this.carousel.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             this.handleSwipe(touchStartX, touchEndX);
-            // Restart auto-scroll after touch
+            // Restart auto-scroll depois de tocar
             setTimeout(() => {
                 if (!this.isHovered) {
                     this.startAutoScroll();
@@ -707,5 +710,135 @@ class Carousel {
         
         // Atualiza a referência dos cards
         this.cards = document.querySelectorAll('.curso-card');
+    }
+}
+
+// Animação da Faixa de Logos
+class LogoStrip {
+    constructor() {
+        this.track = document.querySelector('.logo-strip__track');
+        this.items = [];
+        this.logoFiles = [];
+        this.gap = window.innerWidth <= 768 ? 32 : 64; // 2rem ou 4rem em pixels
+        this.isAnimating = false;
+        
+        this.init();
+    }
+
+    async init() {
+        try {
+            // Carrega arquivos de logo do diretório
+            await this.loadLogoFiles();
+            
+            // Cria itens iniciais
+            this.createItems();
+            
+            // Clona itens para loop suave
+            this.cloneItems();
+            
+            // Calcula e define a largura da faixa de logos
+            this.setTrackWidth();
+            
+            // Inicia a animação
+            this.startAnimation();
+            
+            // Cuida do redimensionamento da janela
+            window.addEventListener('resize', () => {
+                this.gap = window.innerWidth <= 768 ? 32 : 64;
+                this.setTrackWidth();
+            });
+        } catch (error) {
+            console.error('Error initializing LogoStrip:', error);
+        }
+    }
+
+    async loadLogoFiles() {
+        try {
+            // Busca a lista de arquivos de logo do servidor
+            const response = await fetch('/assets/images/logos/');
+            const text = await response.text();
+            
+            // Analisa a lista de diretórios para obter arquivos de imagem
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const links = doc.querySelectorAll('a');
+            
+            this.logoFiles = Array.from(links)
+                .map(link => link.href)
+                .filter(href => {
+                    const fileName = href.split('/').pop();
+                    return fileName.match(/\.(png|jpg|jpeg|svg)$/i);
+                })
+                .map(href => {
+                    const fileName = href.split('/').pop();
+                    return {
+                        src: `/assets/images/logos/${fileName}`,
+                        alt: fileName.split('.')[0].toUpperCase()
+                    };
+                });
+            
+            if (this.logoFiles.length === 0) {
+                throw new Error('No logo files found in the directory');
+            }
+        } catch (error) {
+            console.error('Error loading logo files:', error);
+            // Retorna um conjunto padrão de logos se a lista de diretórios falhar
+            this.logoFiles = [
+                { src: '/assets/images/logos/google.png', alt: 'GOOGLE' },
+                { src: '/assets/images/logos/apple.png', alt: 'APPLE' },
+                { src: '/assets/images/logos/nvidia.png', alt: 'NVIDIA' },
+                { src: '/assets/images/logos/meta.png', alt: 'META' },
+                { src: '/assets/images/logos/ibm.png', alt: 'IBM' },
+                { src: '/assets/images/logos/amazon.png', alt: 'AMAZON' }
+            ];
+        }
+    }
+
+    createItems() {
+        // Limpa os itens existentes
+        this.track.innerHTML = '';
+        this.items = [];
+        
+        // Cria itens para cada logo
+        this.logoFiles.forEach(logo => {
+            const item = document.createElement('div');
+            item.className = 'logo-strip__item';
+            
+            const img = document.createElement('img');
+            img.src = logo.src;
+            img.alt = logo.alt;
+            img.className = 'logo-strip__logo';
+            
+            item.appendChild(img);
+            this.track.appendChild(item);
+            this.items.push(item);
+        });
+    }
+
+    cloneItems() {
+        // Clona todos os itens e os adiciona à faixa de logos
+        const items = Array.from(this.items);
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            this.track.appendChild(clone);
+        });
+    }
+
+    setTrackWidth() {
+        if (this.items.length === 0) return;
+        
+        const itemWidth = this.items[0].offsetWidth;
+        const totalItems = this.items.length * 2; // Original + cloned items
+        const totalWidth = (itemWidth * totalItems) + (this.gap * (totalItems - 1));
+        
+        // Coloca a largura da faixa de logos para exatamente corresponder ao conteúdo
+        this.track.style.width = `${totalWidth}px`;
+        
+        // Garante que a faixa de logos esteja posicionada corretamente
+        this.track.style.transform = 'translateX(0)';
+    }
+
+    startAnimation() {
+        // A animação é tratada pelo CSS
     }
 }
