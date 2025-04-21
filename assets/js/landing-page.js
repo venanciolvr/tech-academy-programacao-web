@@ -753,48 +753,17 @@ class LogoStrip {
     }
 
     async loadLogoFiles() {
-        try {
-            // Busca a lista de arquivos de logo do servidor
-            const response = await fetch('../../assets/img/logos/');
-            const text = await response.text();
-            
-            // Analisa a lista de diretórios para obter arquivos de imagem
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(text, 'text/html');
-            const links = doc.querySelectorAll('a');
-            
-            this.logoFiles = Array.from(links)
-                .map(link => link.href)
-                .filter(href => {
-                    const fileName = href.split('/').pop();
-                    return fileName.match(/\.(png|jpg|jpeg|svg)$/i);
-                })
-                .map(href => {
-                    const fileName = href.split('/').pop();
-                    return {
-                        src: `../../assets/img/logos/${fileName}`,
-                        alt: fileName.split('.')[0].toUpperCase()
-                    };
-                });
-            
-            if (this.logoFiles.length === 0) {
-                throw new Error('No logo files found in the directory');
-            }
-        } catch (error) {
-            console.error('Error loading logo files:', error);
-            // Retorna um conjunto padrão de logos se a lista de diretórios falhar
-            this.logoFiles = [
-                { src: '../../assets/img/logos/Google.png', alt: 'GOOGLE' },
-                { src: '../../assets/img/logos/Apple.png', alt: 'APPLE' },
-                { src: '../../assets/img/logos/Nvidia.png', alt: 'NVIDIA' },
-                { src: '../../assets/img/logos/Meta.png', alt: 'META' },
-                { src: '../../assets/img/logos/IBM.png', alt: 'IBM' },
-                { src: '../../assets/img/logos/Amazon.png', alt: 'AMAZON' },
-                { src: '../../assets/img/logos/Itau.png', alt: 'ITAU' },
-                { src: '../../assets/img/logos/Microsoft.png', alt: 'MICROSOFT' },
-                { src: '../../assets/img/logos/Linkedin.png', alt: 'LINKEDIN' },
-            ];
-        }
+        this.logoFiles = [
+            { src: '../../assets/img/logos/Google.png', alt: 'GOOGLE' },
+            { src: '../../assets/img/logos/Apple.png', alt: 'APPLE' },
+            { src: '../../assets/img/logos/Nvidia.png', alt: 'NVIDIA' },
+            { src: '../../assets/img/logos/Meta.png', alt: 'META' },
+            { src: '../../assets/img/logos/IBM.png', alt: 'IBM' },
+            { src: '../../assets/img/logos/Amazon.png', alt: 'AMAZON' },
+            { src: '../../assets/img/logos/Itau.png', alt: 'ITAU' },
+            { src: '../../assets/img/logos/Microsoft.png', alt: 'MICROSOFT' },
+            { src: '../../assets/img/logos/Linkedin.png', alt: 'LINKEDIN' },
+        ];
     }
 
     createItems() {
