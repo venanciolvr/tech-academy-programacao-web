@@ -1,14 +1,14 @@
 // Lista de logos para exibir
 const logos = [
-    { name: 'Amazon', image: '../../assets/img/logos/amazon.png' },
-    { name: 'Apple', image: '../../assets/img/logos/apple.png' },
-    { name: 'Google', image: '../../assets/img/logos/google.png' },
-    { name: 'IBM', image: '../../assets/img/logos/ibm.png' },
-    { name: 'Itau', image: '../../assets/img/logos/itau.png' },
-    { name: 'Linkedin', image: '../../assets/img/logos/Linkedin.png' },
-    { name: 'Meta', image: '../../assets/img/logos/meta.png' },
-    { name: 'Microsoft', image: '../../assets/img/logos/microsoft.png' },
-    { name: 'Nvidia', image: '../../assets/img/logos/nvidia.png' },
+    { name: 'Amazon', image: '/tech-academy-programacao-web/assets/img/logos/amazon.png' },
+    { name: 'Apple', image: '/tech-academy-programacao-web/assets/img/logos/apple.png' },
+    { name: 'Google', image: '/tech-academy-programacao-web/assets/img/logos/google.png' },
+    { name: 'IBM', image: '/tech-academy-programacao-web/assets/img/logos/ibm.png' },
+    { name: 'Itau', image: '/tech-academy-programacao-web/assets/img/logos/itau.png' },
+    { name: 'Linkedin', image: '/tech-academy-programacao-web/assets/img/logos/Linkedin.png' },
+    { name: 'Meta', image: '/tech-academy-programacao-web/assets/img/logos/meta.png' },
+    { name: 'Microsoft', image: '/tech-academy-programacao-web/assets/img/logos/microsoft.png' },
+    { name: 'Nvidia', image: '/tech-academy-programacao-web/assets/img/logos/nvidia.png' },
 ];
 
 // Função para criar um elemento de logo
