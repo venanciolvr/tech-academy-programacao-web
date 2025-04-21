@@ -14,7 +14,9 @@
     <header class="header">
         <div class="container">
             <div class="header__content">
-                <a href="index.html" class="logo">TECH ACADEMY</a>
+                <a href="#inicio" class="logo">
+                    <img src="assets/img/imagotipo.svg" alt="Tech Academy" class="logo__image">
+                </a>
                 <nav class="nav">
                     <ul class="nav__list">
                         <li><a href="#cursos">Cursos</a></li>
@@ -31,8 +33,8 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Seção Hero -->
+    <section class="hero" id="inicio">
         <div class="container">
             <div class="hero__content">
                 <h1 class="hero__title">Transforme seu futuro com cursos de tecnologia de alto nível!</h1>
@@ -42,12 +44,13 @@
                     <div class="stars"></div>
                     <div class="glow"></div>
                 </div>
+                <a href="pages/signup/signup-options.html" class="btn btn--primary mobile-only" style="display: none;">Matricule-se</a>
             </div>
         </div>
     </section>
 
     <!-- Seção Especialistas -->
-    <section class="especialistas">
+    <section class="especialistas" id="especialistas">
         <div class="container">
             <div class="especialistas__grid">
                 <!-- Card 1 -->
@@ -88,7 +91,7 @@
     </section>
 
     <!-- Seção Destaque -->
-    <section class="destaque">
+    <section class="destaque" id="destaque">
         <div class="container">
             <h2 class="section-title">Líderes globais da indústria recrutam nossos alunos</h2>
             <div class="logo-strip">
@@ -98,7 +101,7 @@
     </section>
 
     <!-- Seção Por que escolher -->
-    <section class="por-que-escolher">
+    <section class="por-que-escolher" id="sobre">
         <div class="container">
             <h2 class="section-title">Por que escolher a Tech Academy?</h2>
             <div class="por-que-escolher__grid">
@@ -119,82 +122,117 @@
     </section>
 
     <!-- Seção Cursos -->
-    <section class="cursos">
-        <div class="cursos__header">
+    <section class="cursos" id="cursos">
+        <div class="container">
             <h2 class="section-title">Cursos Mais Procurados</h2>
-        </div>
-        <div class="cursos__carousel">
-            <button class="cursos__nav-btn cursos__nav-btn--prev" aria-label="Anterior">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <div class="cursos__track">
+            <div class="cursos__grid">
                 <div class="curso-card" data-course="web-dev">
-                    <img src="https://placehold.co/600x400" alt="Desenvolvimento Web Full Stack">
-                    <h3>Desenvolvimento Web Full Stack</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">🌐</div>
+                        <h3 class="curso-card__title">Desenvolvimento Web Full Stack</h3>
+                    </div>
+                    <p class="curso-card__description">Aprenda a criar aplicações web completas, desde o frontend até o backend, utilizando as tecnologias mais modernas do mercado.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="data-science">
-                    <img src="https://placehold.co/600x400" alt="Data Science e Machine Learning">
-                    <h3>Data Science e Machine Learning</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">📊</div>
+                        <h3 class="curso-card__title">Data Science e Machine Learning</h3>
+                    </div>
+                    <p class="curso-card__description">Domine as técnicas de análise de dados e machine learning para extrair insights valiosos e criar modelos preditivos.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="cloud">
-                    <img src="https://placehold.co/600x400" alt="Cloud Computing e DevOps">
-                    <h3>Cloud Computing e DevOps</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">☁️</div>
+                        <h3 class="curso-card__title">Cloud Computing e DevOps</h3>
+                    </div>
+                    <p class="curso-card__description">Aprenda a arquitetar, implementar e gerenciar soluções em nuvem, além de dominar as práticas de DevOps.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="cyber">
-                    <img src="https://placehold.co/600x400" alt="Cybersecurity">
-                    <h3>Cybersecurity</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">🔒</div>
+                        <h3 class="curso-card__title">Cybersecurity</h3>
+                    </div>
+                    <p class="curso-card__description">Proteja sistemas e dados contra ameaças cibernéticas, aprendendo as melhores práticas de segurança da informação.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="mobile">
-                    <img src="https://placehold.co/600x400" alt="Mobile Development">
-                    <h3>Mobile Development</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">📱</div>
+                        <h3 class="curso-card__title">Mobile Development</h3>
+                    </div>
+                    <p class="curso-card__description">Desenvolva aplicativos móveis nativos e híbridos para iOS e Android, utilizando as tecnologias mais modernas.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="design">
-                    <img src="https://placehold.co/600x400" alt="UI/UX Design">
-                    <h3>UI/UX Design</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">🎨</div>
+                        <h3 class="curso-card__title">UI/UX Design</h3>
+                    </div>
+                    <p class="curso-card__description">Crie interfaces intuitivas e experiências de usuário memoráveis, combinando design e tecnologia.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="ai">
-                    <img src="https://placehold.co/600x400" alt="Inteligência Artificial">
-                    <h3>Inteligência Artificial</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">🤖</div>
+                        <h3 class="curso-card__title">Inteligência Artificial</h3>
+                    </div>
+                    <p class="curso-card__description">Explore o fascinante mundo da IA, aprendendo desde os fundamentos até aplicações práticas em diversos setores.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="blockchain">
-                    <img src="https://placehold.co/600x400" alt="Blockchain">
-                    <h3>Blockchain</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">⛓️</div>
+                        <h3 class="curso-card__title">Blockchain</h3>
+                    </div>
+                    <p class="curso-card__description">Explore o mundo das criptomoedas e blockchain, aprendendo a desenvolver aplicações descentralizadas.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="game">
-                    <img src="https://placehold.co/600x400" alt="Game Development">
-                    <h3>Game Development</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">🎮</div>
+                        <h3 class="curso-card__title">Game Development</h3>
+                    </div>
+                    <p class="curso-card__description">Aprenda a criar jogos 2D e 3D, desde a concepção até a publicação, utilizando engines modernas.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
                 <div class="curso-card" data-course="iot">
-                    <img src="https://placehold.co/600x400" alt="Internet of Things">
-                    <h3>Internet of Things</h3>
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">📡</div>
+                        <h3 class="curso-card__title">Internet of Things</h3>
+                    </div>
+                    <p class="curso-card__description">Desenvolva soluções IoT, conectando dispositivos físicos à internet e criando aplicações inteligentes.</p>
+                    <button class="curso-card__button">Saiba mais</button>
+                </div>
+                <div class="curso-card" data-course="qa">
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">🔍</div>
+                        <h3 class="curso-card__title">Quality Assurance</h3>
+                    </div>
+                    <p class="curso-card__description">Aprenda as melhores práticas de teste de software, garantindo a qualidade dos produtos digitais.</p>
+                    <button class="curso-card__button">Saiba mais</button>
+                </div>
+                <div class="curso-card" data-course="agile">
+                    <div class="curso-card__header">
+                        <div class="curso-card__icon">🔄</div>
+                        <h3 class="curso-card__title">Agile & Scrum</h3>
+                    </div>
+                    <p class="curso-card__description">Domine as metodologias ágeis e o framework Scrum para gerenciar projetos de forma eficiente.</p>
+                    <button class="curso-card__button">Saiba mais</button>
                 </div>
             </div>
-            <button class="cursos__nav-btn cursos__nav-btn--next" aria-label="Próximo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <div class="cursos__dots"></div>
-        </div>
-    </section>
-
-    <!-- Seção CTA -->
-    <section class="cta">
-        <div class="container">
-            <h2 class="cta__title">Você está preparado para iniciar sua carreira?</h2>
-            <a href="../../pages/signup/signup-options.html" class="btn btn--primary">Comece Agora</a>
         </div>
     </section>
 
     <!-- Rodapé -->
-    <footer class="footer">
+    <footer class="footer" id="contato">
         <div class="container">
             <div class="footer__content">
                 <div class="footer__main-links">
                     <div class="footer__primary-links">
-                        <a href="index.html">Início</a>
+                        <a href="#inicio">Início</a>
                         <a href="#secretaria">Secretaria</a>
                         <a href="#programas">Programas</a>
                         <a href="#sobre">Sobre Nós</a>
@@ -211,7 +249,7 @@
                     <a href="#termos">Termos de Uso</a>
                     <a href="#privacidade">Política de Privacidade</a>
                     <a href="#cookies">Preferências de Cookies</a>
-                    <p class="footer__copyright">© 2024 Tech Academy. Todos os direitos reservados.</p>
+                    <p class="footer__copyright">© 2025 TECH ACADEMY – Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>

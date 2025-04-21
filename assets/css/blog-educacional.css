@@ -1,7 +1,7 @@
-/* Import base styles */
+/* Importação de estilos base */
 @import 'home-aluno.css';
 
-/* Articles Section */
+/* Seção de Artigos */
 .articles-section {
     margin-top: 30px;
     display: flex;
@@ -96,7 +96,7 @@
     margin-right: 4px;
 }
 
-/* Featured Authors Section */
+/* Seção de Autores Destacados */
 .featured-authors {
     margin-top: 48px;
     padding-top: 40px;
@@ -149,7 +149,7 @@
     font-size: 0.9rem;
 }
 
-/* Responsive Adjustments */
+/* Ajustes Responsivos */
 @media (max-width: 1024px) {
     .authors-grid {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

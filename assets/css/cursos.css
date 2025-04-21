@@ -1,4 +1,4 @@
-/* Courses Container */
+/* Container de Cursos */
 .courses-container {
     background: white;
     padding: 24px;
@@ -12,7 +12,7 @@
     color: #333;
 }
 
-/* Courses Grid */
+/* Grade de Cursos */
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -20,7 +20,7 @@
     margin-bottom: 24px;
 }
 
-/* Course Card */
+/* Cartão de Curso */
 .course-card {
     background: white;
     border: 1px solid #eaeaea;
@@ -82,7 +82,7 @@
     color: #b8ec2f;
 }
 
-/* Progress Bar */
+/* Barra de Progresso */
 .course-progress {
     width: 100%;
 }
@@ -113,7 +113,7 @@
     transition: width 0.3s ease;
 }
 
-/* Featured Card */
+/* Cartão Destacado */
 .featured-card {
     background: linear-gradient(135deg, #b8ec2f 0%, #96c424 100%);
     border-radius: 12px;
@@ -152,7 +152,7 @@
     line-height: 1.5;
 }
 
-/* Calendar Card */
+/* Cartão de Calendário */
 .calendar-card {
     background: white;
     border-radius: 12px;
@@ -224,7 +224,7 @@
     color: #333;
 }
 
-/* Monitoring Banner */
+/* Banner de Monitoramento */
 .monitoring-banner {
     background: #f8f8f8;
     border-radius: 12px;
@@ -244,7 +244,7 @@
     line-height: 1.5;
 }
 
-/* Zoom Availability */
+/* Disponibilidade do Zoom */
 .zoom-availability {
     background: #f0f9ff;
     border-radius: 12px;
@@ -288,7 +288,7 @@
     background-color: #0284c7;
 }
 
-/* Responsive Adjustments */
+/* Ajustes Responsivos */
 @media (max-width: 1200px) {
     .courses-grid {
         gap: 20px;
@@ -371,7 +371,7 @@
     }
 }
 
-/* Featured Card Section */
+/* Seção de Cartão Destacado */
 .notification-card {
     background-color: #f8f5ff;
     border-radius: 12px;

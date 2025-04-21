@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid || isEmpty;
     }
 
-    // Event listeners
+    // Eventos de escuta
     emailInput.addEventListener('input', function() {
         updateEmailValidationState(this.value);
     });

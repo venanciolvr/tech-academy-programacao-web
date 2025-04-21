@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add click event listeners to article cards
+    // Adicionar eventos de clique aos cartões de artigo
     const articleCards = document.querySelectorAll('.article-card');
     articleCards.forEach(card => {
         card.addEventListener('click', () => {
-            // Get the article title for future implementation of article view
+            // Obter o título do artigo para futura implementação de visualização de artigo
             const title = card.querySelector('h3').textContent;
-            console.log(`Article clicked: ${title}`);
-            // Future implementation: navigate to article page or open article modal
+            console.log(`Artigo clicado: ${title}`);
+            // Futura implementação: navegar para a página de artigo ou abrir modal de artigo
         });
     });
 
-    // Add click event listeners to author cards
+    // Adicionar eventos de clique aos cartões de autor
     const authorCards = document.querySelectorAll('.author-card');
     authorCards.forEach(card => {
         card.addEventListener('click', () => {
-            // Get the author name for future implementation of author profile view
+            // Obter o nome do autor para futura implementação de visualização de perfil de autor
             const name = card.querySelector('h3').textContent;
-            console.log(`Author clicked: ${name}`);
-            // Future implementation: navigate to author profile or open author modal
+            console.log(`Autor clicado: ${name}`);
+            // Futura implementação: navegar para o perfil de autor ou abrir modal de autor
         });
     });
 }); 

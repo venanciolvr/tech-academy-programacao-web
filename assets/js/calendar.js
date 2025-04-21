@@ -1,15 +1,15 @@
-// Function to get the current week's dates
+// Função para obter as datas da semana atual
 function getCurrentWeekDates() {
     const today = new Date();
-    const currentDay = today.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    const currentDay = today.getDay(); // 0 = Domingo, 1 = Segunda, etc.
     
-    // Calculate the start of the week (Sunday)
+    // Calcular o início da semana (Domingo)
     const startDate = new Date(today);
     startDate.setDate(today.getDate() - currentDay);
     
     const weekDates = [];
     
-    // Generate array of dates for the week
+    // Gerar array de datas para a semana
     for (let i = 0; i < 7; i++) {
         const date = new Date(startDate);
         date.setDate(startDate.getDate() + i);
@@ -19,7 +19,7 @@ function getCurrentWeekDates() {
     return weekDates;
 }
 
-// Function to get the month name in Portuguese
+// Função para obter o nome do mês em português
 function getMonthName(month) {
     const months = [
         'Janeiro', 'Fevereiro', 'Março', 'Abril',
@@ -29,23 +29,23 @@ function getMonthName(month) {
     return months[month];
 }
 
-// Function to get the weekday label in Portuguese
+// Função para obter o rótulo do dia da semana em português
 function getWeekdayLabel(day) {
     const weekdays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
     return weekdays[day];
 }
 
-// Function to update the calendar
+// Função para atualizar o calendário
 function updateCalendar() {
     const weekDates = getCurrentWeekDates();
     const today = new Date();
     
-    // Update month and year in the header
+    // Atualizar o mês e o ano no cabeçalho
     const monthYearHeader = document.querySelector('.calendar-section h2');
     const firstDate = weekDates[0];
     const lastDate = weekDates[6];
     
-    // If the week spans two months, show both
+    // Se a semana abrange dois meses, mostrar ambos
     if (firstDate.getMonth() !== lastDate.getMonth()) {
         const firstMonth = getMonthName(firstDate.getMonth());
         const lastMonth = getMonthName(lastDate.getMonth());
@@ -54,15 +54,15 @@ function updateCalendar() {
         monthYearHeader.textContent = `${getMonthName(firstDate.getMonth())} ${firstDate.getFullYear()}`;
     }
     
-    // Update week days
+    // Atualizar os dias da semana
     const weekView = document.querySelector('.week-view');
-    weekView.innerHTML = ''; // Clear existing content
+    weekView.innerHTML = ''; // Limpar o conteúdo existente
     
     weekDates.forEach(date => {
         const dayElement = document.createElement('div');
         dayElement.className = 'week-day';
         
-        // Add active class if it's today
+        // Adicionar a classe ativa se for hoje
         if (date.toDateString() === today.toDateString()) {
             dayElement.classList.add('active');
         }
@@ -76,19 +76,19 @@ function updateCalendar() {
     });
 }
 
-// Initial update
+// Atualização inicial
 document.addEventListener('DOMContentLoaded', () => {
     updateCalendar();
     
-    // Update calendar at midnight
+    // Atualizar o calendário à meia-noite
     const now = new Date();
     const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
     const timeUntilMidnight = tomorrow - now;
     
-    // Set timeout to update at midnight
+    // Configurar timeout para atualizar à meia-noite
     setTimeout(() => {
         updateCalendar();
-        // After first midnight update, set interval for subsequent days
+        // Após a primeira atualização à meia-noite, configurar intervalo para atualizações subsequentes
         setInterval(updateCalendar, 24 * 60 * 60 * 1000);
     }, timeUntilMidnight);
 }); 

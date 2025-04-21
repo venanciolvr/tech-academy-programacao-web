@@ -30,19 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (link && !item.classList.contains('active')) {
                 e.preventDefault();
                 
-                // Remove active class from all items
+                // Remove a classe ativa de todos os itens
                 menuItems.forEach(menuItem => menuItem.classList.remove('active'));
                 
-                // Add active class to clicked item
+                // Adiciona a classe ativa ao item clicado
                 item.classList.add('active');
                 
-                // Update indicator position with animation
+                // Atualiza a posição do indicador com animação
                 updateIndicator(item);
                 
-                // Navigate to the new page after animation
+                // Navegar para a nova página após a animação
                 setTimeout(() => {
                     window.location.href = link.href;
-                }, 400); // Match the CSS transition duration
+                }, 400); // Corresponde ao tempo de transição do CSS
             }
         });
     });

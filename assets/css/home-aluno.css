@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Reset de Estilos e Base */
 * {
     margin: 0;
     padding: 0;
@@ -26,7 +26,7 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar Styles */
+/* Estilos da Barra Lateral */
 .sidebar {
     width: 250px;
     background-color: white;
@@ -114,7 +114,7 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Remove hover effects */
+/* Remove efeitos de hover */
 .menu a {
     transition: color 0.3s ease;
 }
@@ -132,14 +132,14 @@ body {
     margin-left: 10px;
 }
 
-/* Main Content Styles */
+/* Estilos do Conteúdo Principal */
 .main-content {
     flex: 1;
     margin-left: 250px;
     padding: 30px;
 }
 
-/* Header Section */
+/* Seção do Cabeçalho */
 .header-section {
     margin-bottom: 30px;
 }
@@ -222,7 +222,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Online status outline */
+/* Contorno de status online */
 .profile-picture.online::after {
     content: '';
     position: absolute;
@@ -251,7 +251,7 @@ body {
     }
 }
 
-/* Responsive adjustments for header */
+/* Ajustes responsivos para o cabeçalho */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -273,7 +273,7 @@ body {
     }
 }
 
-/* Featured Card Section */
+/* Seção de Cartão Destacado */
 .featured-card {
     margin-bottom: 40px;
 }
@@ -361,7 +361,7 @@ body {
 
     .notification-icon {
         margin-bottom: 4px;
-    }
+}
 
     .notification-text {
         width: 100%;
@@ -378,7 +378,7 @@ body {
     }
 }
 
-/* KPI Section */
+/* Seção de KPI */
 .kpi-section {
     margin-bottom: 40px;
 }
@@ -443,7 +443,7 @@ body {
     line-height: 1;
 }
 
-/* Info Section */
+/* Seção de Informações */
 .info-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -456,7 +456,7 @@ body {
     }
 }
 
-/* Notices Card */
+/* Cartão de Notificações */
 .notices-card {
     background: white;
     padding: 24px;
@@ -550,7 +550,7 @@ body {
     color: #6346ff;
 }
 
-/* Responsive adjustments for notices */
+/* Ajustes responsivos para as notificações */
 @media (max-width: 768px) {
     .notice-item {
         flex-direction: column;
@@ -573,7 +573,7 @@ body {
     }
 }
 
-/* Calendar and Monitoring Card */
+/* Cartão de Calendário e Monitoramento */
 .calendar-monitoring-card {
     background: white;
     padding: 24px;
@@ -632,13 +632,13 @@ body {
     pointer-events: none;
 }
 
-/* Remove old active styles */
+/* Remove estilos antigos de active */
 .week-day.active .day-number {
     background-color: transparent;
     color: inherit;
 }
 
-/* Banner Section */
+/* Seção do Banner */
 .banner-section {
     margin: 24px 0;
     text-align: center;
@@ -652,7 +652,7 @@ body {
     max-width: 100%;
 }
 
-/* Monitoring Section */
+/* Seção de Monitoramento */
 .monitoring-section {
     padding-top: 24px;
     border-top: 1px solid #f0f0f0;
@@ -692,7 +692,7 @@ body {
     color: #ff4444;
 }
 
-/* Responsive adjustments */
+/* Ajustes responsivos */
 @media (max-width: 1200px) {
     .info-section {
         grid-template-columns: 1fr;
@@ -721,46 +721,46 @@ body {
         font-size: 1.75rem;
     }
 
-    /* Main content adjustment */
+    /* Ajuste do conteúdo principal */
     .main-content {
         margin-left: 0;
         padding: 80px 20px 20px 20px;
-    }
+}
 
-    /* Show mobile header */
+    /* Mostrar cabeçalho mobile */
     .mobile-header {
         display: flex;
     }
 
-    /* Hide desktop elements */
+    /* Ocultar elementos de desktop */
     .desktop-only {
         display: none !important;
     }
 
-    /* Sidebar adjustments */
+    /* Ajustes da barra lateral */
     .sidebar {
         position: fixed;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100vh;
-        background: white;
+    background: white;
         transition: transform 0.3s ease;
         padding-top: 60px;
         z-index: 999;
     }
 
-    /* Show sidebar when menu is open */
+    /* Mostrar barra lateral quando o menu estiver aberto */
     body.menu-open .sidebar {
         transform: translateX(100%);
     }
 
-    /* Menu indicator adjustments */
+    /* Ajustes do indicador de menu */
     .menu-indicator {
         display: none !important;
     }
 
-    /* Menu items animation */
+    /* Animação dos itens do menu */
     .menu li {
         opacity: 0;
         transform: translateX(-20px);
@@ -789,7 +789,7 @@ body {
         transform: translateX(0);
     }
 
-    /* Cascade animation for menu items */
+    /* Animação em cascata para os itens do menu */
     .menu li:nth-child(1) { transition-delay: 0.1s; }
     .menu li:nth-child(2) { transition-delay: 0.15s; }
     .menu li:nth-child(3) { transition-delay: 0.2s; }
@@ -800,7 +800,7 @@ body {
     .menu li:nth-child(8) { transition-delay: 0.45s; }
     .menu li:nth-child(9) { transition-delay: 0.5s; }
 
-    /* Menu styles for mobile */
+    /* Estilos do menu para mobile */
     .menu {
         height: calc(100vh - 60px);
         display: flex;
@@ -817,15 +817,15 @@ body {
         padding: 16px 20px;
     }
 
-    /* Prevent body scroll when menu is open */
+    /* Prevenir rolagem do corpo quando o menu estiver aberto */
     body.menu-open {
         overflow: hidden;
     }
 
-    /* Mobile menu footer */
+    /* Rodapé do menu mobile */
     .mobile-menu-footer {
         margin-top: auto;
-        padding: 20px;
+    padding: 20px;
         border-top: 1px solid #eaeaea;
     }
 
@@ -833,10 +833,10 @@ body {
         margin-left: 20px;
     }
 
-    /* Header content adjustments */
+    /* Ajustes do conteúdo do cabeçalho */
     .header-content {
         flex-direction: column;
-        text-align: center;
+    text-align: center;
     }
 
     .greeting {
@@ -846,10 +846,10 @@ body {
     .greeting h2 {
         font-size: 1.75rem;
         min-height: 2.1rem;
-    }
+}
 }
 
-/* Footer */
+/* Rodapé */
 footer {
     background-color: #b8ec2f;
     text-align: center;
@@ -862,7 +862,7 @@ footer p {
     font-weight: 500;
 }
 
-/* Mobile Header */
+/* Cabeçalho mobile */
 .mobile-header {
     display: none;
     position: fixed;
@@ -883,7 +883,7 @@ footer p {
     width: auto;
 }
 
-/* Hamburger Button */
+/* Botão Hamburger */
 .hamburger {
     width: 30px;
     height: 30px;
@@ -916,7 +916,7 @@ footer p {
     transform: translateY(6px);
 }
 
-/* Hamburger animation */
+/* Animação do botão Hamburger */
 body.menu-open .hamburger-line:first-child {
     transform: translateY(0) rotate(45deg);
 }
@@ -925,7 +925,7 @@ body.menu-open .hamburger-line:last-child {
     transform: translateY(0) rotate(-45deg);
 }
 
-/* Mobile Menu Footer */
+/* Rodapé do menu mobile */
 .mobile-menu-footer {
     display: none;
     padding: 20px;
@@ -934,7 +934,7 @@ body.menu-open .hamburger-line:last-child {
 }
 
 @media (max-width: 768px) {
-    /* Show mobile menu footer */
+    /* Mostrar rodapé do menu mobile */
     .mobile-menu-footer {
         display: flex;
         align-items: center;
@@ -958,7 +958,7 @@ body.menu-open .hamburger-line:last-child {
     }
 }
 
-/* Desktop/Mobile visibility classes */
+/* Classes de visibilidade desktop/mobile */
 .desktop-only {
     display: block;
 }
