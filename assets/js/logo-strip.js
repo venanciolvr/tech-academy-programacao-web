@@ -1,13 +1,14 @@
 // Lista de logos para exibir
 const logos = [
-    { name: 'Logo 1', image: 'assets/img/logos/logo1.png' },
-    { name: 'Logo 2', image: 'assets/img/logos/logo2.png' },
-    { name: 'Logo 3', image: 'assets/img/logos/logo3.png' },
-    { name: 'Logo 4', image: 'assets/img/logos/logo4.png' },
-    { name: 'Logo 5', image: 'assets/img/logos/logo5.png' },
-    { name: 'Logo 6', image: 'assets/img/logos/logo6.png' },
-    { name: 'Logo 7', image: 'assets/img/logos/logo7.png' },
-    { name: 'Logo 8', image: 'assets/img/logos/logo8.png' }
+    { name: 'Amazon', image: '../../assets/img/logos/amazon.png' },
+    { name: 'Apple', image: '../../assets/img/logos/apple.png' },
+    { name: 'Google', image: '../../assets/img/logos/google.png' },
+    { name: 'IBM', image: '../../assets/img/logos/ibm.png' },
+    { name: 'Itau', image: '../../assets/img/logos/itau.png' },
+    { name: 'Linkedin', image: '../../assets/img/logos/Linkedin.png' },
+    { name: 'Meta', image: '../../assets/img/logos/meta.png' },
+    { name: 'Microsoft', image: '../../assets/img/logos/microsoft.png' },
+    { name: 'Nvidia', image: '../../assets/img/logos/nvidia.png' },
 ];
 
 // Função para criar um elemento de logo

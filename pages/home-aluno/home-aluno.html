@@ -6,83 +6,202 @@
     <title>Home | Tech Academy</title>
     <link rel="stylesheet" href="../../assets/css/home-aluno.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../../assets/js/calendar.js" defer></script>
+    <script src="../../assets/js/menu.js" defer></script>
+    <script src="../../assets/js/greeting.js" defer></script>
 </head>
 <body>
 <div class="container">
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-logo">
+            <img src="../../assets/img/imagotipo.svg" alt="Logo da Tech Academy">
+        </div>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </header>
+
     <!-- Sidebar -->
     <aside class="sidebar">
-        <div class="logo">
-            <img class ="logo__img" src="../../assets/img/imagotipo.svg" alt="Logo da Tech Academy">
+        <div class="logo desktop-only">
+            <img class="logo__img" src="../../assets/img/imagotipo.svg" alt="Logo da Tech Academy">
         </div>
         <nav class="menu">
+            <div class="menu-indicator"></div>
             <ul>
-                <li class="active"><a href="../../pages/home-aluno/home-aluno.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="../../pages/cursos/cursos.html"><i class="fas fa-book"></i> Cursos</a></li>
-                <li><a href="#"><i class="fas fa-bell"></i> Avisos</a></li>
-                <li><a href="#"><i class="fas fa-envelope"></i> Mensagens</a></li>
-                <li><a href="#"><i class="fas fa-trophy"></i> Conquistas</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Serviços</a></li>
-                <li><a href="#"><i class="fas fa-calendar"></i> Calendário <span class="notification">4</span></a></li>
-                <li><a href="#"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
-                <li><a href="../../pages/comunidade/comunidade.html"><i class="fas fa-users"></i> Blog Educacional</a></li>
+                <li class="active" data-menu-item><a href="../../pages/home-aluno/home-aluno.html"><i class="fas fa-home"></i> Home</a></li>
+                <li data-menu-item><a href="../../pages/cursos/cursos.html"><i class="fas fa-book"></i> Cursos</a></li>
+                <li data-menu-item><a href="../../pages/avisos/avisos.html"><i class="fas fa-bell"></i> Avisos</a></li>
+                <li data-menu-item><a href="#"><i class="fas fa-envelope"></i> Mensagens</a></li>
+                <li data-menu-item><a href="#"><i class="fas fa-trophy"></i> Conquistas</a></li>
+                <li data-menu-item><a href="#"><i class="fas fa-cog"></i> Serviços</a></li>
+                <li data-menu-item><a href="#"><i class="fas fa-calendar"></i> Calendário <span class="notification">4</span></a></li>
+                <li data-menu-item><a href="#"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                <li data-menu-item><a href="../../pages/blog-educacional/blog-educacional.html"><i class="fas fa-users"></i> Blog Educacional</a></li>
             </ul>
+            <!-- Mobile Menu Footer -->
+            <div class="mobile-menu-footer">
+                <div class="profile-picture online">
+                    <img src="../../assets/img/profile-picture.jpg" alt="Foto de perfil">
+                </div>
+            </div>
         </nav>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Bloco 1 - Lembretes -->
-        <section class="reminder-section">
-            <h2>Bem-Vindo, Beltrano Costa</h2>
-            <p class="subtitle">Que bom te ver por aqui</p>
-            <div class="cards-container">
-                <div class="card">
-                    <div class="img-container">
-                        <img class="megafone_img" src="../../assets/img/megafone.png" alt="">
-                    </div>
-                    <h3>Lembrete: Vídeo Conferência sobre pesquisa e design de Experiência de Usuário</h3>
-                    <p class="lembrete_descricao">UX-Strategy: Como alcançar o próximo nível.</p>
-                    <p class="author">por Dr. Dona Paul</p>
+        <!-- Header Section -->
+        <section class="header-section">
+            <div class="header-content">
+                <div class="greeting">
+                    <h2></h2>
+                    <p class="subtitle">Que bom te ver por aqui!</p>
                 </div>
+                <div class="header-actions desktop-only">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge"></span>
+                    </div>
+                    <div class="profile-picture online">
+                        <img src="../../assets/img/profile-picture.jpg" alt="Foto de perfil">
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Bloco 2 - Key Point Indicator -->
-        <section class="kpis-section">
+        <!-- Featured Card Section -->
+        <section class="featured-card">
+            <div class="notification-card">
+                <div class="notification-content">
+                    <div class="notification-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="notification-text">
+                        <p class="notification-label">Lembrete: Vídeo Conferência sobre Pesquisa & Design de Experiência do Usuário</p>
+                        <h3 class="notification-title">UX-Strategy: Como Alcançar o Próximo Nível</h3>
+                        <p class="notification-author">por Dr. Dona Paul</p>
+                    </div>
+                    <div class="notification-time">
+                        <span class="availability">Disponível às 19h50</span>
+                        <span class="countdown">00:13:26</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPI Section -->
+        <section class="kpi-section">
             <div class="kpi-container">
                 <div class="kpi-card">
-                    <img src="/assets/img/pontos chart.png" alt="pontos chart">
-                    <h3>Seus Pontos</h3>
-                    <p>10,5</p>
+                    <div class="kpi-header">
+                        <div class="kpi-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Seus Pontos</h3>
+                    </div>
+                    <p class="kpi-value">10,5</p>
                 </div>
                 <div class="kpi-card">
-                    <img src="/assets/img/checkmark.png" alt="checkmark">
-                    <h3>Cursos Concluidos</h3>
-                    <p>9</p>
+                    <div class="kpi-header">
+                        <div class="kpi-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Cursos Concluídos</h3>
+                    </div>
+                    <p class="kpi-value">9</p>
                 </div>
                 <div class="kpi-card">
-                    <img src="/assets/img/relogio tempo.png" alt="relogio tempo">
-                    <h3>Tempo de Aprendizado</h3>
-                    <p>75h</p>
+                    <div class="kpi-header">
+                        <div class="kpi-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Tempo de Aprendizado</h3>
+                    </div>
+                    <p class="kpi-value">75h</p>
                 </div>
             </div>
         </section>
 
-        <!-- Bloco 3 - Avisos/Calendario -->
-        <section class="aviso-section">
-            <div class="aviso-container">
-                <div class="aviso-card">
+        <!-- Notices and Calendar Section -->
+        <section class="info-section">
+            <div class="notices-container">
+                <div class="notices-card">
                     <h2>Avisos</h2>
-                    <p>Lembrete de Entrega de Tarefa</p>
-                    <p>Cronograma de Avaliações</p>
-                    <p>Palestra com Convidados</p>
-                    <p>Manutenção do Sistema</p>
+                    <div class="notice-list">
+                        <div class="notice-item">
+                            <div class="notice-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="notice-content">
+                                <h4>Lembrete de Entrega de Tarefa</h4>
+                                <p>Apresentação do PBL 2 de Programação para WEB.</p>
+                            </div>
+                            <div class="notice-date">24 Mar 2025</div>
+                        </div>
+                        <div class="notice-item">
+                            <div class="notice-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="notice-content">
+                                <h4>Cronograma de Avaliações</h4>
+                                <p>O cronograma de próximas avaliações foi atualizado.</p>
+                            </div>
+                            <div class="notice-date">20 Mar 2025</div>
+                        </div>
+                        <div class="notice-item">
+                            <div class="notice-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="notice-content">
+                                <h4>Palestra com Convidados</h4>
+                                <p>Junte-se a nós em uma palestra com Tim Cook</p>
+                            </div>
+                            <div class="notice-date">19 Mar 2025</div>
+                        </div>
+                        <div class="notice-item">
+                            <div class="notice-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="notice-content">
+                                <h4>Manutenção do Sistema</h4>
+                                <p>O LMS passará por manutenção programada.</p>
+                            </div>
+                            <div class="notice-date">17 Mar 2025</div>
+                        </div>
+                        <a href="../../pages/avisos/avisos.html" class="see-more">Veja mais avisos ></a>
+                    </div>
                 </div>
-                <div class="aviso-card">
-                    <h2>Março 2025</h2>
+            </div>
+            <div class="calendar-container">
+                <div class="calendar-monitoring-card">
+                    <div class="calendar-section">
+                        <h2><!-- Month and year will be inserted by JavaScript --></h2>
+                        <div class="week-view">
+                            <!-- Week days will be inserted by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="banner-section">
+                        <img src="../../assets/img/banner-monitoria.png" alt="Banner Monitoria" class="monitoring-banner">
+                    </div>
+
+                    <div class="monitoring-section">
+                        <h3>Horários de Monitoria no Zoom</h3>
+                        <div class="schedule-item">
+                            <span class="schedule-days">Segunda – Sexta</span>
+                            <span class="schedule-hours">09h00 – 19h00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="schedule-days">Sábado</span>
+                            <span class="schedule-hours">09h00 – 12h00</span>
+                        </div>
+                        <div class="status-badge offline">Status: OFFLINE</div>
+                    </div>
                 </div>
             </div>
         </section>
-
     </main>
 </div>
 
