@@ -386,7 +386,7 @@
 
 .cursos__grid {
     display: grid;
-    grid-template-columns: repeat(4, 304px);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
     margin-top: 2rem;
     justify-content: center;

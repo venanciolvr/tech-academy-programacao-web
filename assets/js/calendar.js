@@ -19,7 +19,7 @@ function getCurrentWeekDates() {
     return weekDates;
 }
 
-// Função para obter o nome do mês em português
+// Função para obter o nome do mês
 function getMonthName(month) {
     const months = [
         'Janeiro', 'Fevereiro', 'Março', 'Abril',
@@ -29,7 +29,7 @@ function getMonthName(month) {
     return months[month];
 }
 
-// Função para obter o rótulo do dia da semana em português
+// Função para obter o rótulo do dia da semana
 function getWeekdayLabel(day) {
     const weekdays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
     return weekdays[day];

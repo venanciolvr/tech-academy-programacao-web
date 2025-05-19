@@ -167,42 +167,62 @@ html, body {
     text-decoration: underline;
 }
 
-/* Validação de senha */
+/* Estilos para validação de senha */
 .password-strength {
-    margin-top: 0.5rem;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+}
+
+.strength-bar {
+    height: 4px;
+    background-color: #e9ecef;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.strength-level {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s ease;
 }
 
 .strength-criteria {
     list-style: none;
     padding: 0;
     margin: 0;
+    font-family: 'Inter', sans-serif;
 }
 
 .strength-criteria li {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
-    margin-bottom: 0.25rem;
+    transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
-    transition: color 0.3s ease;
 }
 
-/* Estado neutro (padrão) */
-.strength-criteria li {
-    color: #999;
-    opacity: 0.7;
+.strength-criteria li i {
+    margin-right: 8px;
+    font-size: 1rem;
 }
 
-/* Estado válido */
 .strength-criteria li.valid {
-    color: #4caf50;
-    opacity: 1;
+    color: #198754;
 }
 
-/* Estado inválido */
 .strength-criteria li.invalid {
     color: #dc3545;
-    opacity: 1;
+}
+
+.strength-criteria li.valid i {
+    color: #198754;
+}
+
+.strength-criteria li.invalid i {
+    color: #dc3545;
 }
 
 /* Botão de submit */
@@ -235,7 +255,7 @@ html, body {
     margin-top: 1.5rem;
 }
 
-/* Tooltip */
+/* Popup de Tooltip */
 .tooltip {
     display: none;
     position: absolute;

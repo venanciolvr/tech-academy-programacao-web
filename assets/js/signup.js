@@ -1,177 +1,285 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Máscara para o campo de telefone
-    $('#phone').mask('(00) 00000-0000');
+import { auth, db } from '../../assets/js/firebase.js';
+import { 
+    createUserWithEmailAndPassword,
+    updateProfile,
+    fetchSignInMethodsForEmail
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { 
+    doc, 
+    setDoc,
+    serverTimestamp 
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // Elementos do formulário
-    const form = document.getElementById('signupForm');
-    const firstNameInput = document.getElementById('firstName');
-    const lastNameInput = document.getElementById('lastName');
+// Verificar se Firebase está carregando corretamente
+console.log('Firebase conectado:', auth, db);
+
+// Elementos do DOM
+const signupForm = document.getElementById('signupForm');
+const errorMessage = document.getElementById('errorMessage');
+const submitButton = signupForm.querySelector('button[type="submit"]');
+const emailInput = document.getElementById('email');
+const confirmEmailInput = document.getElementById('confirmEmail');
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
-    const emailInput = document.getElementById('email');
-    const confirmEmailInput = document.getElementById('confirmEmail');
-    const emailError = document.getElementById('emailError');
-    const submitButton = form.querySelector('button[type="submit"]');
+const termsCheckbox = document.querySelector('input[name="terms"]');
     const strengthCriteria = document.querySelectorAll('.strength-criteria li');
+const strengthBar = document.querySelector('.strength-level');
 
-    // Lista de conectivos que devem permanecer em minúsculas
-    const lowercaseWords = ['de', 'da', 'do', 'das', 'dos', 'e'];
+// Critérios de validação da senha
+const passwordCriteria = {
+    length: password => password.length >= 8,
+    uppercase: password => /[A-Z]/.test(password),
+    lowercase: password => /[a-z]/.test(password),
+    number: password => /[0-9]/.test(password),
+    special: password => /[!@#$%^&*(),.?":{}|<>]/.test(password)
+};
 
-    // Função para capitalizar nomes
-    function capitalizeName(name) {
-        return name
-            .toLowerCase()
-            .split(' ')
-            .map(word => {
-                // Se a palavra estiver na lista de conectivos, mantém em minúscula
-                if (lowercaseWords.includes(word)) {
-                    return word;
-                }
-                // Capitaliza a primeira letra de cada palavra
-                return word.charAt(0).toUpperCase() + word.slice(1);
-            })
-            .join(' ');
+// Função para validar a senha e atualizar a interface
+function validatePassword(password) {
+    let validCriteria = 0;
+    const totalCriteria = Object.keys(passwordCriteria).length;
+
+    // Atualiza cada critério
+    strengthCriteria.forEach(criterion => {
+        const criterionType = criterion.dataset.criterion;
+        const isValid = passwordCriteria[criterionType](password);
+        
+        // Atualiza a classe e o ícone do critério
+        criterion.classList.toggle('valid', isValid);
+        criterion.classList.toggle('invalid', !isValid);
+        
+        // Atualiza o ícone
+        const icon = isValid ? 'fa-check-circle' : 'fa-times-circle';
+        criterion.innerHTML = `<i class="fas ${icon}"></i> ${criterion.textContent.replace(/<[^>]*>/g, '')}`;
+        
+        if (isValid) validCriteria++;
+    });
+
+    // Atualiza a barra de força
+    const strengthPercentage = (validCriteria / totalCriteria) * 100;
+    strengthBar.style.width = `${strengthPercentage}%`;
+
+    // Atualiza a cor da barra baseado na força
+    if (strengthPercentage <= 20) {
+        strengthBar.style.backgroundColor = '#dc3545'; // Vermelho
+    } else if (strengthPercentage <= 40) {
+        strengthBar.style.backgroundColor = '#ffc107'; // Amarelo
+    } else if (strengthPercentage <= 60) {
+        strengthBar.style.backgroundColor = '#fd7e14'; // Laranja
+    } else if (strengthPercentage <= 80) {
+        strengthBar.style.backgroundColor = '#20c997'; // Verde claro
+    } else {
+        strengthBar.style.backgroundColor = '#198754'; // Verde
     }
 
-    // Função para formatar o campo de nome
-    function formatNameField(input) {
-        const formattedValue = capitalizeName(input.value);
-        if (formattedValue !== input.value) {
-            input.value = formattedValue;
+    return validCriteria === totalCriteria;
+    }
+
+// Função para exibir mensagem de erro
+function showError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+    errorMessage.style.color = '#dc3545';
+    errorMessage.style.marginTop = '10px';
+    errorMessage.style.marginBottom = '10px';
+    errorMessage.style.padding = '10px';
+    errorMessage.style.backgroundColor = '#f8d7da';
+    errorMessage.style.border = '1px solid #f5c6cb';
+    errorMessage.style.borderRadius = '4px';
+}
+
+// Função para limpar mensagem de erro
+function clearError() {
+    errorMessage.textContent = '';
+    errorMessage.style.display = 'none';
+    }
+
+// Função para verificar se o e-mail já está em uso
+async function checkEmailExists(email) {
+    try {
+        const methods = await fetchSignInMethodsForEmail(auth, email);
+        if (methods.length > 0) {
+            return {
+                exists: true,
+                message: 'Este e-mail já está sendo utilizado por outra conta. Por favor, utilize um e-mail diferente ou faça login se já possui uma conta.'
+            };
         }
+        return { exists: false };
+    } catch (error) {
+        console.error('Erro ao verificar e-mail:', error);
+        throw new Error('Erro ao verificar disponibilidade do e-mail. Tente novamente.');
     }
+}
 
-    // Função para validar o formato do e-mail
-    function validateEmailFormat(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    // Função para atualizar o estado visual do campo de e-mail
-    function updateEmailValidationState(email) {
-        const isValid = validateEmailFormat(email);
-        const isEmpty = email.trim() === '';
-
-        if (!isEmpty && !isValid) {
-            emailInput.classList.add('error');
-            emailError.textContent = 'Insira um e-mail válido';
-            emailError.classList.add('show');
-        } else {
-            emailInput.classList.remove('error');
-            emailError.classList.remove('show');
-        }
-
-        return isValid || isEmpty;
-    }
-
-    // Função para validar a força da senha
-    function validatePassword(password) {
-        const criteria = {
-            length: password.length >= 8,
-            uppercase: /[A-Z]/.test(password),
-            number: /[0-9]/.test(password),
-            symbol: /[!@#$%^&*(),.?":{}|<>]/.test(password)
-        };
-
-        // Atualiza o estado visual de cada critério
-        strengthCriteria.forEach(criterion => {
-            const type = criterion.dataset.criterion;
-            const isValid = criteria[type];
-            const hasText = password.length > 0;
-
-            // Remove todas as classes de estado
-            criterion.classList.remove('valid', 'invalid');
-
-            if (hasText) {
-                // Se há texto, aplica o estado válido ou inválido
-                criterion.classList.add(isValid ? 'valid' : 'invalid');
-            }
-        });
-
-        return Object.values(criteria).every(Boolean);
-    }
-
-    // Função para validar se os e-mails são iguais
-    function validateEmails() {
-        const email = emailInput.value;
-        const confirmEmail = confirmEmailInput.value;
-        const isValid = email === confirmEmail && email !== '';
-
-        confirmEmailInput.setCustomValidity(isValid ? '' : 'Os e-mails não coincidem');
-        return isValid;
-    }
-
-    // Função para validar se as senhas são iguais
-    function validatePasswords() {
-        const password = passwordInput.value;
-        const confirmPassword = confirmPasswordInput.value;
-        const isValid = password === confirmPassword && password !== '';
-
-        confirmPasswordInput.setCustomValidity(isValid ? '' : 'As senhas não coincidem');
-        return isValid;
-    }
-
-    // Função para verificar se todos os campos obrigatórios estão preenchidos
+// Função para validar o formulário
     function validateForm() {
-        const requiredInputs = form.querySelectorAll('input[required], select[required]');
-        const allRequiredFilled = Array.from(requiredInputs).every(input => input.value.trim() !== '');
-        const passwordValid = validatePassword(passwordInput.value);
-        const emailsValid = validateEmails();
-        const passwordsValid = validatePasswords();
-        const termsChecked = form.querySelector('input[name="terms"]').checked;
-        const emailFormatValid = updateEmailValidationState(emailInput.value);
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = emailInput.value.trim();
+    const confirmEmail = confirmEmailInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    const course = document.getElementById('course').value;
+    const experience = document.querySelector('input[name="experience"]:checked')?.value;
+    const terms = termsCheckbox.checked;
 
-        submitButton.disabled = !(allRequiredFilled && passwordValid && emailsValid && passwordsValid && termsChecked && emailFormatValid);
+    // Validações básicas
+    if (!firstName || !lastName) {
+        throw new Error('Por favor, preencha seu nome e sobrenome.');
     }
 
-    // Event listeners para os campos de nome
-    firstNameInput.addEventListener('input', function() {
-        formatNameField(this);
-        validateForm();
+    if (!email || !confirmEmail) {
+        throw new Error('Por favor, preencha seu e-mail e confirmação.');
+    }
+
+    if (email !== confirmEmail) {
+        throw new Error('Os e-mails não coincidem.');
+    }
+
+    if (!password || !confirmPassword) {
+        throw new Error('Por favor, preencha sua senha e confirmação.');
+    }
+
+    if (password !== confirmPassword) {
+        throw new Error('As senhas não coincidem.');
+    }
+
+    // Validação da força da senha
+    if (!validatePassword(password)) {
+        throw new Error('A senha não atende a todos os requisitos de segurança.');
+    }
+
+    if (!course) {
+        throw new Error('Por favor, selecione um curso de interesse.');
+    }
+
+    if (!experience) {
+        throw new Error('Por favor, selecione seu nível de experiência.');
+    }
+
+    if (!terms) {
+        throw new Error('Você precisa aceitar os termos de uso para continuar.');
+    }
+
+    return {
+        firstName,
+        lastName,
+        email,
+        password,
+        course,
+        experience,
+        terms,
+        newsletter: document.querySelector('input[name="newsletter"]').checked
+    };
+}
+
+// Função para criar o usuário no Firestore
+async function createUserProfile(user, userData) {
+    const userRef = doc(db, 'usuarios', user.uid);
+    
+    await setDoc(userRef, {
+        nome: userData.firstName,
+        sobrenome: userData.lastName,
+        email: userData.email,
+        cursoInteresse: userData.course,
+        nivelExperiencia: userData.experience,
+        aceitouTermos: userData.terms,
+        newsletter: userData.newsletter,
+        dataCadastro: serverTimestamp()
     });
+}
 
-    firstNameInput.addEventListener('blur', function() {
-        formatNameField(this);
-        validateForm();
+// Função para lidar com o envio do formulário
+async function handleSignup(event) {
+    event.preventDefault();
+    
+    try {
+        // Desabilita o botão durante o processo
+        submitButton.disabled = true;
+        clearError();
+        
+        // Valida o formulário
+        const userData = validateForm();
+        
+        // Verifica se o e-mail já está em uso
+        const emailCheck = await checkEmailExists(userData.email);
+        if (emailCheck.exists) {
+            showError(emailCheck.message);
+            submitButton.disabled = false;
+            return;
+        }
+        
+        // Cria o usuário no Firebase Auth
+        const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            userData.email,
+            userData.password
+        );
+        
+        // Atualiza o perfil do usuário com o nome completo
+        await updateProfile(userCredential.user, {
+            displayName: `${userData.firstName} ${userData.lastName}`
+        });
+        
+        // Cria o perfil do usuário no Firestore
+        await createUserProfile(userCredential.user, userData);
+        
+        // Log para debug do redirecionamento
+        console.log('Cadastro concluído com sucesso. Redirecionando...');
+        
+        // Redireciona para o portal do aluno
+        window.location.href = '../home-aluno/home-aluno.html';
+        
+    } catch (error) {
+        console.error('Erro no cadastro:', error);
+        
+        // Mensagens de erro amigáveis
+        let errorMessageText = 'Ocorreu um erro durante o cadastro. ';
+        
+        if (error.code) {
+            // Erros do Firebase
+        switch (error.code) {
+            case 'auth/email-already-in-use':
+                    errorMessageText += 'Este e-mail já está em uso.';
+                break;
+            case 'auth/invalid-email':
+                    errorMessageText += 'O e-mail fornecido é inválido.';
+                break;
+            case 'auth/weak-password':
+                    errorMessageText += 'A senha é muito fraca.';
+                break;
+            default:
+                    errorMessageText += error.message;
+            }
+        } else {
+            // Erros manuais ou outros erros
+            errorMessageText = error.message;
+        }
+        
+        showError(errorMessageText);
+        submitButton.disabled = false;
+    }
+}
+
+// Event Listeners
+signupForm.addEventListener('submit', handleSignup);
+
+// Validação em tempo real dos campos
+const formInputs = signupForm.querySelectorAll('input, select');
+formInputs.forEach(input => {
+    input.addEventListener('input', () => {
+        try {
+            validateForm();
+            submitButton.disabled = false;
+            clearError();
+        } catch (error) {
+            submitButton.disabled = true;
+            showError(error.message);
+        }
     });
+});
 
-    lastNameInput.addEventListener('input', function() {
-        formatNameField(this);
-        validateForm();
-    });
-
-    lastNameInput.addEventListener('blur', function() {
-        formatNameField(this);
-        validateForm();
-    });
-
-    // Event listeners
-    emailInput.addEventListener('input', function() {
-        updateEmailValidationState(this.value);
-        validateForm();
-    });
-
-    emailInput.addEventListener('blur', function() {
-        updateEmailValidationState(this.value);
-        validateForm();
-    });
-
-    passwordInput.addEventListener('input', function() {
-        validatePassword(this.value);
-        validateForm();
-    });
-
-    confirmPasswordInput.addEventListener('input', validateForm);
-    confirmEmailInput.addEventListener('input', validateForm);
-
-    // Adiciona event listeners para todos os campos obrigatórios
-    form.querySelectorAll('input[required], select[required]').forEach(input => {
-        input.addEventListener('input', validateForm);
-    });
-
-    // Event listener para o checkbox de termos
-    form.querySelector('input[name="terms"]').addEventListener('change', validateForm);
-
-    // Validação inicial
-    validateForm();
+// Validação em tempo real da senha
+passwordInput.addEventListener('input', () => {
+    validatePassword(passwordInput.value);
 }); 

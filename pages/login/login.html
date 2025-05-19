@@ -24,19 +24,17 @@
             <div class="form-content">
                 <h1 class="form-title">Bem-vindo(a) de volta!</h1>
                 
-                <form class="login-form__fields">
+                <form id="loginForm" class="login-form__fields">
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-                        <span class="error-message" id="emailError"></span>
+                        <input type="email" id="email" name="email" required>
+                        <span id="emailError" class="error-message"></span>
                     </div> 
-                    
                     <div class="form-group">
                         <label for="password">Senha</label>
-                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                        <a href="#esqueci-senha" class="forgot-password">Esqueceu a senha?</a>
+                        <input type="password" id="password" name="password" required>
                     </div>
-                    
+                    <div id="errorMessage" class="error-message"></div>
                     <button type="submit" class="btn btn--primary">Entrar</button>
                 </form>
 
@@ -70,6 +68,7 @@
         </div>
     </div>
 
-    <script src="../../assets/js/login.js"></script>
+    <!-- Scripts -->
+    <script type="module" src="../../assets/js/login.js"></script>
 </body>
 </html>

@@ -1,0 +1,450 @@
+/* Detalhes do Curso */
+.course-details-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+}
+
+/* Cabeçalho do Curso */
+.course-header {
+    background: white;
+    padding: 2.5rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #eaeaea;
+}
+
+.course-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.course-description {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Grade de Conteúdo Principal */
+.course-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Coluna de Vídeo */
+.video-column {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.video-container {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #000;
+}
+
+.video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Detalhes do Capítulo */
+.chapter-details {
+    padding: 1.5rem;
+}
+
+.chapter-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.chapter-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Materiais Complementares */
+.complementary-materials {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border: 1px solid #eaeaea;
+}
+
+.complementary-materials h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.materials-list {
+    list-style: none;
+    padding: 0;
+}
+
+.materials-list li {
+    margin-bottom: 0.75rem;
+}
+
+.materials-list a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    background: white;
+    border: 1px solid #eaeaea;
+}
+
+.materials-list a:hover {
+    background: #f0f0f0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Coluna de Módulos */
+.modules-column {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+
+.module {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.module:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.module-header {
+    width: 100%;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.module-header:hover {
+    background: #f0f0f0;
+}
+
+.module-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.module-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.module.active .module-content {
+    max-height: 1000px;
+}
+
+/* Lista de Capítulos */
+.chapters-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chapter-item {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.chapter-item:last-child {
+    border-bottom: none;
+}
+
+.chapter-item:hover {
+    background: #f8f9fa;
+}
+
+.chapter-number {
+    color: #666;
+    font-size: 0.9rem;
+    min-width: 2.5rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.chapter-name {
+    flex: 1;
+    color: #333;
+    font-weight: 500;
+}
+
+.chapter-duration {
+    color: #666;
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Estilo do checkmark nos capítulos */
+.chapter-check {
+    margin-left: 8px;
+    color: #4CAF50;
+    font-size: 14px;
+}
+
+/* Estilo do botão de conclusão */
+.mark-complete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.mark-complete-btn:hover {
+    background-color: #45a049;
+}
+
+.mark-complete-btn.completed {
+    background-color: #45a049;
+}
+
+.mark-complete-btn i {
+    font-size: 14px;
+}
+
+/* Estilo dos capítulos concluídos */
+.chapter-item.completed {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.chapter-item.completed .chapter-title {
+    color: #4CAF50;
+}
+
+/* Container de Progresso do Curso */
+.course-progress-container {
+    margin-top: 1.5rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-percentage {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.progress-text {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.course-progress {
+    width: 100%;
+    height: 8px;
+    background: #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #b8ec2f;
+    transition: width 0.3s ease;
+}
+
+/* Estados do Item do Capítulo */
+.chapter-item.completed {
+    background: #f8f9fa;
+}
+
+.chapter-item.completed .chapter-name {
+    color: #2e7d32;
+}
+
+.chapter-item.completed .chapter-number {
+    color: #2e7d32;
+}
+
+.chapter-item.completed::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #2e7d32;
+    margin-right: 0.5rem;
+}
+
+/* Estados do Botão de Conclusão */
+.mark-complete-btn.completed {
+    background: #e5f9d7;
+    color: #2e7d32;
+}
+
+.mark-complete-btn.completed i {
+    color: #2e7d32;
+}
+
+/* Barra de Progresso */
+.course-progress {
+    width: 100%;
+    height: 4px;
+    background: #eaeaea;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #b8ec2f;
+    transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modules-column {
+        order: -1;
+    }
+
+    .course-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-header {
+        padding: 1.5rem 0;
+    }
+
+    .course-title {
+        font-size: 1.75rem;
+    }
+    
+    .chapter-title {
+        font-size: 1.3rem;
+    }
+    
+    .module-header h3 {
+        font-size: 1rem;
+    }
+
+    .chapter-details {
+        padding: 1rem;
+    }
+
+    .complementary-materials {
+        padding: 1rem;
+    }
+
+    .materials-list a {
+        padding: 0.5rem;
+    }
+}
+
+/* Acessibilidade */
+.module-header:focus,
+.chapter-item:focus {
+    outline: 2px solid #b8ec2f;
+    outline-offset: -2px;
+}
+
+/* Animação para expansão do módulo */
+.module-content {
+    transition: max-height 0.3s ease-out;
+}
+
+.module.active .module-header i {
+    transform: rotate(180deg);
+}
+
+.module-header i {
+    transition: transform 0.3s ease;
+    color: #666;
+}
+
+/* Estilos do Capítulo Ativo */
+.chapter-item.active {
+    background: #f8f9fa;
+    border-left: 3px solid #b8ec2f;
+}
+
+.chapter-item.completed .chapter-name {
+    color: #2e7d32;
+}
+
+.chapter-item.completed .chapter-number {
+    color: #2e7d32;
+}
+
+body, .chapter-details, .complementary-materials, .materials-list, .modules-column, .module-header, .module-content, .chapters-list, .chapter-item, .chapter-number, .chapter-name, .chapter-duration, .mark-complete-btn, .chapter-description {
+    font-family: 'Inter', sans-serif;
+} 
