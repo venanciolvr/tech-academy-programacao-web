@@ -11,6 +11,9 @@
     <script src="../../assets/js/menu.js" defer></script>
     <script src="../../assets/js/menu-indicator.js" defer></script>
     <script src="../../assets/js/greeting.js" defer></script>
+    <script src="../../assets/js/course-navigation.js" defer></script>
+    <script src="../../assets/js/cursos.js"></script>
+    <script src="../../assets/js/navegacao-curso.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -42,6 +45,7 @@
                 <li data-menu-item><a href="../../pages/calendario/calendario.html"><i class="fas fa-calendar"></i> Calendário <span class="notification">4</span></a></li>
                 <li data-menu-item><a href="#"><i class="fas fa-dollar-sign"></i> Financeiro</a></li>
                 <li data-menu-item><a href="../../pages/blog-educacional/blog-educacional.html"><i class="fas fa-users"></i> Blog Educacional</a></li>
+                <li class="logout-item" data-menu-item><a href="#" id="logoutButton"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
             </ul>
             <!-- Rodapé do menu mobile -->
             <div class="mobile-menu-footer">
@@ -96,7 +100,7 @@
             <!-- Grid de Cursos -->
             <div class="courses-grid">
                 <!-- Card de Curso 1 -->
-                <div class="course-card">
+                <div class="course-card" data-course="web-dev">
                     <div class="course-header">
                         <div class="course-icon">
                             <i class="fas fa-code"></i>
@@ -117,13 +121,13 @@
                 </div>
 
                 <!-- Card de Curso 2 -->
-                <div class="course-card">
+                <div class="course-card" data-course="data-science">
                     <div class="course-header">
                         <div class="course-icon">
                             <i class="fas fa-database"></i>
                         </div>
                         <div class="course-info">
-                            <h3>Banco de Dados</h3>
+                            <h3>Data Science</h3>
                             <span class="course-hours"><i class="fas fa-clock"></i> 35h</span>
                         </div>
                     </div>
@@ -138,7 +142,7 @@
                 </div>
 
                 <!-- Card de Curso 3 -->
-                <div class="course-card">
+                <div class="course-card" data-course="mobile">
                     <div class="course-header">
                         <div class="course-icon">
                             <i class="fas fa-mobile-alt"></i>
@@ -159,7 +163,7 @@
                 </div>
 
                 <!-- Card de Curso 4 -->
-                <div class="course-card">
+                <div class="course-card" data-course="cyber">
                     <div class="course-header">
                         <div class="course-icon">
                             <i class="fas fa-network-wired"></i>
@@ -215,5 +219,6 @@
 <footer>
     <p>© 2025 TECH ACADEMY – Todos os direitos reservados.</p>
 </footer>
+<script type="module" src="../../assets/js/logout.js"></script>
 </body>
 </html> 
