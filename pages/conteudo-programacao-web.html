@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação para Web | Tech Academy</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/conteudo-curso.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="course-details-container">
+        <!-- Cabeçalho do curso -->
+        <header class="course-header">
+            <div class="container">
+                <a href="../pages/cursos/cursos.html" class="back-to-courses-btn" style="display:inline-block;margin-bottom:18px;padding:10px 20px;background:#b8ec2f;color:#222;font-family:'Inter',sans-serif;font-weight:600;border-radius:6px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:background 0.2s;">← Voltar para cursos</a>
+                <h1 class="course-title">Programação para Web</h1>
+                <p class="course-description">Aprenda a criar aplicações web completas, desde o frontend até o backend, utilizando as tecnologias mais modernas do mercado.</p>
+            </div>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main class="course-content">
+            <div class="container">
+                <div class="course-grid">
+                    <!-- Coluna da esquerda - Player de vídeo -->
+                    <div class="video-column">
+                        <div class="video-container">
+                            <div class="video-wrapper">
+                                <iframe id="videoPlayer" 
+                                        src="" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                        
+                        <!-- Detalhes do capítulo atual -->
+                        <div class="chapter-details">
+                            <h2 id="chapterTitle" class="chapter-title">Selecione um capítulo</h2>
+                            <div id="chapterDescription" class="chapter-description">
+                                Escolha um capítulo na lista ao lado para começar a aprender.
+                            </div>
+                            
+                            <!-- Materiais complementares -->
+                            <div class="complementary-materials">
+                                <h3>Materiais Complementares</h3>
+                                <ul id="materialsList" class="materials-list">
+                                    <li>
+                                        <a href="#" class="material-link">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>Slides da Aula</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="material-link">
+                                            <i class="fas fa-code"></i>
+                                            <span>Código Fonte</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="material-link">
+                                            <i class="fas fa-book"></i>
+                                            <span>Documentação</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna da direita - Lista de módulos -->
+                    <div class="modules-column">
+                        <div class="modules-list">
+                            <!-- Módulo 1 -->
+                            <div class="module">
+                                <button class="module-header" aria-expanded="false">
+                                    <h3>Módulo 1: Introdução ao Desenvolvimento Web</h3>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="module-content">
+                                    <ul class="chapters-list">
+                                        <li>
+                                            <button class="chapter-item" data-video-id="VIDEO_ID_1" data-chapter-id="1.1">
+                                                <span class="chapter-number">1.1</span>
+                                                <span class="chapter-name">Introdução ao HTML5</span>
+                                                <span class="chapter-duration">15:30</span>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="chapter-item" data-video-id="VIDEO_ID_2" data-chapter-id="1.2">
+                                                <span class="chapter-number">1.2</span>
+                                                <span class="chapter-name">Estrutura Básica HTML</span>
+                                                <span class="chapter-duration">20:15</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Módulo 2 -->
+                            <div class="module">
+                                <button class="module-header" aria-expanded="false">
+                                    <h3>Módulo 2: CSS e Estilização</h3>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="module-content">
+                                    <ul class="chapters-list">
+                                        <li>
+                                            <button class="chapter-item" data-video-id="VIDEO_ID_3" data-chapter-id="2.1">
+                                                <span class="chapter-number">2.1</span>
+                                                <span class="chapter-name">Introdução ao CSS3</span>
+                                                <span class="chapter-duration">18:45</span>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="chapter-item" data-video-id="VIDEO_ID_4" data-chapter-id="2.2">
+                                                <span class="chapter-number">2.2</span>
+                                                <span class="chapter-name">Seletores e Propriedades</span>
+                                                <span class="chapter-duration">25:20</span>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../assets/js/conteudo-curso.js"></script>
+</body>
+</html> 
