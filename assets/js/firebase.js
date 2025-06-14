@@ -5,12 +5,12 @@ import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase
 
 // Configuração do Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyAu21g79uprdxc2xXlmjQgU6gQeRR-ZPAc",
-    authDomain: "tech-academy-ac333.firebaseapp.com",
-    projectId: "tech-academy-ac333",
-    storageBucket: "tech-academy-ac333.firebasestorage.app",
-    messagingSenderId: "560334089248",
-    appId: "1:560334089248:web:8536f2833d08ff66cf6045"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
 };
 
 // Inicializa o Firebase
